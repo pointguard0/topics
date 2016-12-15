@@ -1,0 +1,543 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.23)  27 JUL 2015 18:30
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"Some properties of CF.tex"
+(./Some properties of CF.tex
+LaTeX2e <2014/05/01>
+Babel <3.9k> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pdfsync/pdfsync.sty
+Package: pdfsync 2008/01/26 v1.1
+)
+(./myfront.tex
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count87
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count88
+\leftroot@=\count89
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count90
+\DOTSCASE@=\count91
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count92
+\c@MaxMatrixCols=\count93
+\dotsspace@=\muskip10
+\c@parentequation=\count94
+\dspbrk@lvl=\count95
+\tag@help=\toks15
+\row@=\count96
+\column@=\count97
+\maxfields@=\count98
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2004/08/06 v2.20
+\thm@style=\toks19
+\thm@bodyfont=\toks20
+\thm@headfont=\toks21
+\thm@notefont=\toks22
+\thm@headpunct=\toks23
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks24
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip49
+\bibsep=\skip50
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count99
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
+\KV@toks@=\toks25
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count100
+))
+\Gin@req@height=\dimen112
+\Gin@req@width=\dimen113
+)
+\epsfxsize=\dimen114
+\epsfysize=\dimen115
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write3
+
+Excluding comment 'comment')
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2014/04/23 v1.1a Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 137.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/srcltx/srcltx.sty
+Package: srcltx 2006/11/12 v1.6 Source specials for inverse search in DVI files
+
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\src@lastline=\count101
+\src@new@everypar=\toks26
+\src@new@output=\toks27
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/eucal.sty
+Package: eucal 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/easy/easyeqn.sty
+Document Style `easyeqn' v1.94 <2002/03/18>.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/easy/easy.sty
+Document Style `easy' v1.1 <2001/05/31>.
+Package: easy 2001/05/31 v1.1
+\@easy@level=\count102
+\@easy@ncol=\count103
+\@easy@nrow=\count104
+\@easy@cnt=\count105
+\@easy@boxviii=\box28
+\@easy@minxviii=\dimen116
+\@easy@minyviii=\dimen117
+\@easy@maxxviii=\dimen118
+\@easy@maxyviii=\dimen119
+\@easy@boxvii=\box29
+\@easy@minxvii=\dimen120
+\@easy@minyvii=\dimen121
+\@easy@maxxvii=\dimen122
+\@easy@maxyvii=\dimen123
+\@easy@boxvi=\box30
+\@easy@minxvi=\dimen124
+\@easy@minyvi=\dimen125
+\@easy@maxxvi=\dimen126
+\@easy@maxyvi=\dimen127
+\@easy@boxv=\box31
+\@easy@minxv=\dimen128
+\@easy@minyv=\dimen129
+\@easy@maxxv=\dimen130
+\@easy@maxyv=\dimen131
+\@easy@boxiv=\box32
+\@easy@minxiv=\dimen132
+\@easy@minyiv=\dimen133
+\@easy@maxxiv=\dimen134
+\@easy@maxyiv=\dimen135
+\@easy@boxiii=\box33
+\@easy@minxiii=\dimen136
+\@easy@minyiii=\dimen137
+\@easy@maxxiii=\dimen138
+\@easy@maxyiii=\dimen139
+\@easy@boxii=\box34
+\@easy@minxii=\dimen140
+\@easy@minyii=\dimen141
+\@easy@maxxii=\dimen142
+\@easy@maxyii=\dimen143
+\@easy@boxi=\box35
+\@easy@minxi=\dimen144
+\@easy@minyi=\dimen145
+\@easy@maxxi=\dimen146
+\@easy@maxyi=\dimen147
+\@easy@hsizexxx=\dimen148
+\@easy@vsizexxx=\dimen149
+\@easy@hsizexxix=\dimen150
+\@easy@vsizexxix=\dimen151
+\@easy@hsizexxviii=\dimen152
+\@easy@vsizexxviii=\dimen153
+\@easy@hsizexxvii=\dimen154
+\@easy@vsizexxvii=\dimen155
+\@easy@hsizexxvi=\dimen156
+\@easy@vsizexxvi=\dimen157
+\@easy@hsizexxv=\dimen158
+\@easy@vsizexxv=\dimen159
+\@easy@hsizexxiv=\dimen160
+\@easy@vsizexxiv=\dimen161
+\@easy@hsizexxiii=\dimen162
+\@easy@vsizexxiii=\dimen163
+\@easy@hsizexxii=\dimen164
+\@easy@vsizexxii=\dimen165
+\@easy@hsizexxi=\dimen166
+\@easy@vsizexxi=\dimen167
+\@easy@hsizexx=\dimen168
+\@easy@vsizexx=\dimen169
+\@easy@hsizexix=\dimen170
+\@easy@vsizexix=\dimen171
+\@easy@hsizexviii=\dimen172
+\@easy@vsizexviii=\dimen173
+\@easy@hsizexvii=\dimen174
+\@easy@vsizexvii=\dimen175
+\@easy@hsizexvi=\dimen176
+\@easy@vsizexvi=\dimen177
+\@easy@hsizexv=\dimen178
+\@easy@vsizexv=\dimen179
+\@easy@hsizexiv=\dimen180
+\@easy@vsizexiv=\dimen181
+\@easy@hsizexiii=\dimen182
+\@easy@vsizexiii=\dimen183
+\@easy@hsizexii=\dimen184
+\@easy@vsizexii=\dimen185
+\@easy@hsizexi=\dimen186
+\@easy@vsizexi=\dimen187
+\@easy@hsizex=\dimen188
+\@easy@vsizex=\dimen189
+\@easy@hsizeix=\dimen190
+\@easy@vsizeix=\dimen191
+\@easy@hsizeviii=\dimen192
+\@easy@vsizeviii=\dimen193
+\@easy@hsizevii=\dimen194
+\@easy@vsizevii=\dimen195
+\@easy@hsizevi=\dimen196
+\@easy@vsizevi=\dimen197
+\@easy@hsizev=\dimen198
+\@easy@vsizev=\dimen199
+\@easy@hsizeiv=\dimen200
+\@easy@vsizeiv=\dimen201
+\@easy@hsizeiii=\dimen202
+\@easy@vsizeiii=\dimen203
+\@easy@hsizeii=\dimen204
+\@easy@vsizeii=\dimen205
+\@easy@hsizei=\dimen206
+\@easy@vsizei=\dimen207
+\@easy@dash@len=\dimen208
+\@easy@dash@sep=\dimen209
+)
+Package: easyeqn 2001/05/31 v1.1
+\@EQ@leftmargin=\dimen210
+\@EQ@col@sep=\dimen211
+\@EQ@DP@n=\count106
+\@EQ@DP@nt=\count107
+\@EQ@EQN@BOX=\box36
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/etex-pkg/etex.sty
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count108
+)
+\etb@tempcnta=\count109
+)
+\c@example=\count110
+\c@remark=\count111
+\c@theorem=\count112
+
+(./Some properties of CF.aux (./Basics.aux) (./Advanced.aux) (./Solutions.aux))
+\openout1 = `"Some properties of CF.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+Configuring pdfsync
+\PDFSYNC@ut=\write4
+\openout4 = `"Some properties of CF.pdfsync"'.
+
+\PDFSYNCf@li@=\count113
+\PDFSYNC@rder=\count114
+**** pdfsync.sty: Synchronizing at \everypar
+\PDFSYNCeveryp@r=\toks28
+**** pdfsync.sty: Synchronizing at \everymath
+\PDFSYNCeverym@th=\toks29
+**** pdfsync.sty: Synchronizing at \everyhbox
+\PDFSYNCeveryhb@x=\toks30
+**** pdfsync.sty: Synchronizing at \everyvbox
+\PDFSYNCeveryvb@x=\toks31
+**** pdfsync.sty: started
+(/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count115
+\scratchdimen=\dimen212
+\scratchbox=\box37
+\nofMPsegments=\count116
+\nofMParguments=\count117
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen213
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
+\everyMPtoPDFconversion=\toks33
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Try loading font information for U+msa on input line 221.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 221.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) [1]
+(./Some properties of CF.toc)
+\tf@toc=\write5
+\openout5 = `"Some properties of CF.toc"'.
+
+Package srcltx Info: Expanded filename `statdef' to `statdef.tex' on input line
+ 78.
+
+:<+ statdef.tex
+(./statdef.tex)
+:<-
+Package srcltx Info: Expanded filename `mydef' to `mydef.tex' on input line 79.
+
+:<+ mydef.tex
+(./mydef.tex)
+:<-
+Package srcltx Info: Expanded filename `ArshakFront' to `ArshakFront.tex' on in
+put line 80.
+:<+ ArshakFront.tex
+(./ArshakFront.tex [2]
+:<+ Basics.tex
+\openout2 = `Basics.aux'.
+
+(./Basics.tex [3
+
+
+]
+Overfull \hbox (21.61293pt too wide) in paragraph at lines 60--63
+\OT1/cmr/m/n/10.95 Indeed, $[][][]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 ^^^[
+]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/1
+0.95 h\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 ^^^[]\OT
+1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 j
+ \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 j\U/msb/m/n/10.95 E []\OMS/cmsy/m/n/1
+0.95 f\OML/cmm/m/it/10.95 i\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t \OT1/cmr/m
+/n/10.95 + \OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 X\OMS/c
+msy/m/n/10.95 g ^^@ \U/msb/m/n/10.95 E []\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.
+95 itX\OMS/cmsy/m/n/10.95 gj ^^T \U/msb/m/n/10.95 E\OMS/cmsy/m/n/10.95 j []f\OM
+L/cmm/m/it/10.95 itX\OMS/cmsy/m/n/10.95 g\OT1/cmr/m/n/10.95 ([]\OMS/cmsy/m/n/10
+.95 f\OML/cmm/m/it/10.95 ihX\OMS/cmsy/m/n/10.95 g ^^@
+ []
+
+
+Overfull \hbox (7.75009pt too wide) in paragraph at lines 64--65
+[][][][]$[][][][] \OML/cmm/m/it/10.95 c[][]^^^[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/
+it/10.95 t[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 t[]\OT1/cmr/m/n/10.95 
+) = [][] \OML/cmm/m/it/10.95 c[][]\U/msb/m/n/10.95 E []\OMS/cmsy/m/n/10.95 f\OM
+L/cmm/m/it/10.95 i^^X\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t[] \OMS/cmsy/m/n/
+10.95 ^^@ \OML/cmm/m/it/10.95 t[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 g \OT1
+/cmr/m/n/10.95 = \U/msb/m/n/10.95 E\OT1/cmr/m/n/10.95 [[][] \OML/cmm/m/it/10.95
+ c[][] []\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 i^^X\OT1/cmr/m/n/10.95 (\OML/
+cmm/m/it/10.95 t[] \OMS/cmsy/m/n/10.95 ^^@
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--88
+
+ []
+
+[4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 92.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 92.
+) [5]
+:<-
+:<+ Advanced.tex
+\openout2 = `Advanced.aux'.
+
+(./Advanced.tex) [6
+
+
+
+]
+:<-
+:<+ Solutions.tex
+\openout2 = `Solutions.aux'.
+
+(./Solutions.tex) [7
+
+
+
+]
+:<-
+)
+:<-
+:<+ "Some properties of CF".bbl
+No file "Some properties of CF".bbl.
+:<-
+[8
+
+] (./Some properties of CF.aux (./Basics.aux) (./Advanced.aux)
+(./Solutions.aux)) ) 
+Here is how much of TeX's memory you used:
+ 4911 strings out of 493117
+ 55206 string characters out of 6135432
+ 121160 words of memory out of 5000000
+ 8251 multiletter control sequences out of 15000+600000
+ 15012 words of font info for 57 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 44i,25n,30p,805b,391s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmcsc10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
+fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "Some properties of CF.pdf" (9 pages, 212836 bytes).
+PDF statistics:
+ 106 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

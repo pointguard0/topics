@@ -1,0 +1,81 @@
+%Environments other that in VGs work AKdef & AKstatdef
+\newenvironment{myproof}{\\$\boldsymbol{Proof}$:\\}{\\$\boldsymbol{End\;of\;Proof}$\\}
+\newenvironment{L_0cond}{\paragraph{}($\boldsymbol{\mathcal{L}_0}$)\; For each $r\leq r_0$ there exist $\delta(r)\leq\frac{1}{2}$ such that is holds for any $\vv\in\Upsilon(r)$ and $\D^2(\vv)\eqdef-\Delta \E L(\Yv,\vv)$ \[}{\]}
+\newenvironment{Lcond}{\paragraph{}($\boldsymbol{\mathcal{L}}$)\; For each $r\geq r_0$ there exist $b(r)$ such that $b(r)r$ is non-decreasing and it holds for any $\vv\in\Upsilon(r)$ \[ }{ \]}
+\newenvironment{ED_0}{\paragraph{}($\boldsymbol{\mathcal{ED}_0}$)\; There exist a positive symmetric matrix $V_0$ and constants $\nu_0\geq1$ and $g\geq0$ such that $\Var\{\nabla\zeta(\svv)\}\leq V_0^2$ and \[ }{ \]}
+\newenvironment{ED_2}{\paragraph{}($\boldsymbol{\mathcal{ED}_2}$)\; There exist a positive value $\omega$ and for each $r\geq0$, a constant $g(r)\geq0$ such that it holds for any $\vv\in\Upsilon(r)$ \[ }{ \]}
+\newenvironment{Indef}{\paragraph{}($\boldsymbol{\mathcal{I}}$)\; There exist a positive constant $\alpha$ such that it holds  \[ }{ \]}
+\newenvironment{Ebootstrap}{\paragraph{}($\boldsymbol{\mathcal{EB}}$)\; For $i=\overline{1,n}$ and each $\lambda_i$ such that $|\lambda_i|\leq g$ random weights $u_i$ have continuous distribution function with $\E u_i=1 $ and $\Var u_i=1$ and also holds\[ }{ \]}
+\newenvironment{SmB}{\paragraph{}($\boldsymbol{\mathcal{SMB}}$)\; There exist a constant $0<\delta_{\xiv}<1/2$ such that for matrix $B_0^2\eqdef\E\xiv\E\xiv^T$ holds\[ }{ \]}
+\newenvironment{STD}{\paragraph{}($\boldsymbol{\mathcal{STD}}$)\; There exist constant $\delta_{S}>0$ such that it holds  \[ }{ \]}
+\newenvironment{IndefB}{\paragraph{}($\boldsymbol{\mathcal{IB}}$)\; There exist a positive constant $\alpha_{\sbt}$ such that it holds  \[ }{ \]}
+%\newenvironment{proposition}{\\\\$\boldsymbol{Proposition}$:\\}{\\$\boldsymbol{End\;of\;Assumption}$\\\\}
+\newcommand{\Matrix}[4]{\left(\begin{array}{cc} #1 & #2 \\ #3 & #4 \end{array}\right)}
+\newcommand{\Svec}[2]{\left(\begin{array}{c} #1 \\ #2 \end{array}\right)}
+
+%Definitions and notations other that in VGs work AKdef & AKstatdef
+\def\Pset{\mathcal{P}} %parametric set of measures
+\def\tvv{\widetilde{\vv}} %MLE estimate in semi-parametric set up
+\def\svv{\vv^*}  %true target parameter in semi-parametric set up
+\def\tvvb{\widetilde{\vv}^{\sbt}} %bMLE estimate in semi-parametric set up
+\def\svvb{\vv^*_{\sbt}}  %true target parameter in semi-parametric set up
+\def\Lnullc{($\boldsymbol{\mathcal{L}_0}$)} %L_0 condition
+\def\Lc{($\boldsymbol{\mathcal{L}}$)} %L condition
+\def\EDnullc{($\boldsymbol{\mathcal{ED}_0}$)} %ED_0 condition
+\def\EDtwoc{($\boldsymbol{\mathcal{ED}_2}$)} %ED_2 condition
+\def\Indc{$\boldsymbol{\mathcal{I}}$} % I codition
+\def\EB{$\boldsymbol{\mathcal{EB}}$} % Eb codition
+\def\SmallmBias{$\boldsymbol{\mathcal{SMB}}$} % SMB codition
+\def\STDc{$(\boldsymbol{\mathcal{STD}})$} % SMB codition
+\def\IndB{$\boldsymbol{\mathcal{IB}}$} % IB codition
+\def\EDBnullc{($\boldsymbol{\mathcal{EDB}_0}$)} % EDB_0 codition
+\def\EDBtwoc{($\boldsymbol{\mathcal{EDB}_2}$)} % EDB_2 codition
+\def\BLR{T_{\boldsymbol{BLR}}} %BLR test statistic
+\def\LR{T_{\boldsymbol{LR}}} %LR test statistic
+\def\Aset{\mathcal{A}} % set of all possible matrices A
+\def\Hnull{\mathcal{H}_0} %set of all target parameters identified in H_0
+\def\Halt{\mathcal{H}_1} %set of all target parameters identified in H_1
+\def\Hnullb{\mathcal{H}_0^{\sbt}} % H_0 in bootstrap world
+\def\Haltb{\mathcal{H}_1^{\sbt}} % H_1 in bootstrap world
+\def\sthetav{\thetav^*}  %p_1 first coordinates in true target parameter v
+\def\setav{\etav^*}  %p-p_1 last coordinates in true target parameter v
+\def\vvr{\vv_{r}}  % additional point for bootstrap validity
+\def\vvc{\vv_{c}} % additional point for uniform bootstrap result
+\def\rp{r^{\prime}} % auxiliary radius to establish concnentration
+\def\zetab{\zeta^{\sbt}} % zeta in bootstrap world
+\def\xivh{\xiv_{\mathcal{H}}} % \xiv in sqWilks expansion result
+\def\xivhi{\xiv_{\mathcal{H},i}} % \xiv in sqWilks expansion result ith coordinate
+\def\xivhj{\xiv_{\mathcal{H},j}} % \xiv in sqWilks expansion result jth coordinate
+\def\xivhp{\xiv^{\prime}_{\mathcal{H}}} % centered \xiv in sqWilks expansion
+\def\txivh{\widetilde{\xiv}_{\mathcal{H}}} % normal \xiv in sqWilks expansion
+\def\txivhb{\widetilde{\xiv}^{\sbt}_{\mathcal{H}}} % normal \xiv in sqWilks expansion for BW
+\def\txivhbi{\widetilde{\xiv}^{\sbt}_{\mathcal{H},i}} % normal \xiv in sqWilks expansion for BW ith component
+\def\txivhi{\widetilde{\xiv}_{\mathcal{H},i}} % normal \xiv in sqWilks expansion ith coordinate
+\def\txivhj{\widetilde{\xiv}_{\mathcal{H},j}} % normal \xiv in sqWilks expansion jth coordinate
+\def\xivhb{\xiv_{\mathcal{H}}^{\sbt}} % \xiv in sqWilks expansion result for B
+\def\xivhbi{\xiv_{\mathcal{H},i}^{\sbt}} % \xiv in sqWilks expansion result for B
+\def\xivr{\xiv_{r}} % \xiv in point where covariance matrices coincide
+\def\diamondsuitb{\diamondsuit^{\sbt}} % diamond in B world
+\def\Dpn{\D_0^{\prime}} % curvature matrix in rotated basis 
+\def\svvp{\vv^{\prime,*}} % true target value in rotated basis
+\def\tvvp{\tvv^{\prime}} % MLE target value in rotated basis
+\def\svvbp{\vv^{\sbt,\prime,*}} % true target value in rotated basis in BW
+\def\tvvbp{\tvv^{\prime}} % true target value in rotated basis
+\def\vvp{\vv^{\prime}} % target parameter in rotated basis
+\def\xive{\xiv_{\etav}} % truncated score vector
+\def\Dh{\widehat{\D}} % diagonal analogue for square root of curv matrix
+\def\alphab{\alpha^{\sbt}} % difference between quadr form and log-lik for BW 
+\def\Phiv{\boldsymbol{\Phi}} % definition of bold Phi
+\def\Tv{\boldsymbol{T}} % definition of bold T
+\def\epsv{\boldsymbol{\epsilon}} % definition of vector of errors
+\def\piv{\boldsymbol{\pi}} % definition of bold \pi
+\def\tthetav{\widetilde{\thetav}} % definition of MLE \theta
+\def\Av{\boldsymbol{A}} % definition of bold A
+\def\xivri{\xiv_{ri}} % definition of \xivri
+%Main objects partitioning
+
+%\include{Introduction}
+\include{Basics}
+\include{Advanced}
+\include{Solutions}
+

@@ -1,0 +1,104 @@
+\section{Basics}\label{bscs}
+\paragraph{}
+In this section only basic properties are provided. Properties are supported with proofs and all necessary definitions. If you have never heard about characteristic functions or are not familiar with them much, this section is for you. 
+\paragraph{}
+If you have worked with characteristic functions before and feel that it is too easy, then feel free to skip first section and start studying second section. 
+\subsection{Complex random variables (c.r.v.)}
+\begin{definition}
+Complex random variable is defined $Z = X +iY$ where $X$ and $Y$ are usual real-valued random variables defined on some probability space $\{\Omega, {\cal{F}}, \mathbb{P}\}$.
+\end{definition}
+
+\begin{definition}
+The distribution of a complex random variable $Z$ is determined by the distribution of the random vector $(X,Y)$. 
+\end{definition}
+
+\begin{definition}
+If Z = X+iY, then the expected value of Z is defined as a complex number $\mathbb{E}Z :=\mathbb{E}X+ i\mathbb{E}Y$.
+\end{definition}
+
+\begin{definition}
+Two complex random variables $Z_1 = X_1 + iY_1$ and $Z_2 = X_2 + iY_2$ are independent iff the random vectors $(X_1,Y_1)$ and $(X_2,Y_2)$ are independent. 
+\end{definition}
+
+\begin{proposition}
+The expected value of the product of two c.r.v. $Z_1 = X_1 + iY_1$and $Z_2 = X_2 + iY_2$ defined as $\mathbb{E}Z_1Z_2 = \mathbb{E}(X_1X_2 - Y_1Y_2) + i\mathbb{E}(X_1Y_2+Y_1X_2)$. If $Z_1$ and $Z_2$ are independent, then $\mathbb{E}Z_1Z_2 = \mathbb{E}Z_1\mathbb{E}Z_2$ 
+\end{proposition}
+\begin{proof}
+$\mathbb{E}Z_1Z_2 = \mathbb{E} (X_1X_2 - Y_1Y_2) + i\mathbb{E}(X_1Y_2+Y_1X_2) = \mathbb{E} X_1 \mathbb{E}X_2 - \mathbb{E}Y_1\mathbb{E}Y_2 + i(\mathbb{E}X_1\mathbb{E}Y_2 + \mathbb{E}Y_2\mathbb{E}X_2) = (\mathbb{E}X_1 + i\mathbb{E}Y_1)(\mathbb{E} X_2 + i\mathbb{E}Y_2) = \mathbb{E}Z_1\mathbb{E}Z_2.$
+\end{proof}
+\begin{proposition}
+If $|Z| \le M$ then $|\mathbb{E}Z| \le M.$
+\end{proposition}
+\begin{proof}
+$Z = X +iY$, then  $|\mathbb{E}Z|^2 = |\mathbb{E}X+i\mathbb{E}Y|^2 = (\mathbb{E}X)^2 + (\mathbb{E}Y)^2 \le (\mathbb{E}X^2) + (\mathbb{E}Y^2) = \mathbb{E}|X|^2 \le M^2 \rightarrow |\mathbb{E}Z| \le M.$
+\end{proof}
+
+\begin{rmrk}
+$|\mathbb{E}X| \le \mathbb{E}|X|.$
+\end{rmrk}
+
+\begin{definition}
+Suppose we have a random variable $\xi \sim F_{\xi}(\omega)$, where $F_{\xi}(\omega)$ is the distribution function of $\xi$. Then $\phi_{\xi}(\cdot)$ is called characteristic function and defined as follows:
+$$\phi_{\xi}(t) := \mathbb{E}\exp\{it\xi\} = \int_{\mathbb{R}} \exp\{itx\}f_{\xi}(x)dx \: \: \: \: (1)$$
+for continous r.v., where $f_{\xi}(\cdot)$ is the probability density function of $\xi$;  
+$$\phi_{\xi}(t) := \mathbb{E}\exp\{it\xi\} = \sum_{j=1}^{N} \mathbb{P}\{\xi=x_j\} \exp\{itx_j\} \: \: \: \: (2)$$
+for discrete r.v., which takes $N$ different values with $\sum_{j=1}^{N} \mathbb{P}\{\xi=x_j\} =1$ and $\mathbb{P}\{\xi=x_j\} \ge 0 \: \: \forall j \in \{1, \dots, N\}$
+\end{definition}
+\begin{rmrk}
+In the definition above assumed, that $f_{\xi}(x)$ is Reimann integrable, thus we are able to write in that form. In general, it is Lebesgue integral with some probability measure.
+\end{rmrk}
+\begin{theorem}
+Characteristic function $\phi_{\xi}(t)$ of r.v. $\xi$ possesses the following basic properties:
+\begin{enumerate}
+\item $\phi_{\xi}(t)$ is a continous function in $t \in \mathbb{R}$
+\item $\phi_{\xi}(0) = 1 \: \: \: a.s.$ 
+\item $\phi_{\xi}(t)$ is positively defined function, i.e., a quadratic form $\sum_{j,l=1}^{n} c_j \bar{c_l}\phi_{\xi}(t_j-t_l) \ge 0$ for any $c_1, \dots, c_n \in \mathbb{C}$ and $t_1, \dots, t_n \in \mathbb{R}$ for $n \ge 1.$
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+\item First of all, we show that $|\phi_X(t+h)-\phi_X(t)| \le \mathbb{E}|\exp\{ihX\}-1|$. \\
+Indeed, $|\phi_X(t+h)-\phi_X(t)| = |\mathbb{E}\exp\{i(t+h)X\}-\mathbb{E}\exp\{itX\}| \le \mathbb{E}|\exp\{itX\}(\exp\{ihX\}-1)| = \mathbb{E}|\exp\{ihX\}-1|.$ \\
+Now, $\mathbb{E}|\exp\{ihX\}-1| = \int_{\mathbb{R}} |\exp\{ihx\}-1| dF(x)$ and after considering $h \to 0$ we get, that $|\phi_X(t+h)-\phi_X(t)| \le \mathbb{E}|\exp\{ihX\}-1| \to 0$, thus we have showed that $\lim_{h \to 0} \phi_X(t+h)-\phi_X(t) = 0$.
+\item $\phi_{\xi}(0) = \mathbb{E}\exp^{i\xi0} = \mathbb{E} 1 = 1$
+\item $\sum_{1 \le j,l \le n} c_j \bar{c_l}\phi_{\xi}(t_j-t_l) = \sum_{1 \le j,l \le n} c_j \bar{c_l} \mathbb{E} \exp\{i\xi(t_j-t_l)\} = \mathbb{E}[ \sum_{1 \le j,l \le n} c_j \bar{c_l} \exp\{i\xi(t_j-t_l)\} ]= \mathbb{E}[ \sum_{1 \le j \le n} c_j \exp\{i\xi t_j\} \sum_{1 \le j \le n}  \bar{c_j \exp\{i\xi t_j\}}] = \mathbb{E}[ |\sum_{1 \le j \le n} c_j \exp\{i\xi t_j\}|^2] \ge 0 $.
+\end{enumerate}
+\end{proof}
+\begin{proposition}
+$|\phi_{\xi}(t)| \le 1 \: \: \forall t \in \mathbb{R}$.
+\end{proposition}
+\begin{proof}
+Indeed. $|\phi_{\xi}(t)| = |\mathbb{E} \exp\{i\xi t\}| \le \mathbb{E} |\exp\{i\xi t\}| =\mathbb{E} 1 =1$.
+\end{proof}
+\begin{proposition}
+$\phi_{a+b\xi}(t) = \exp\{iat\} \phi_{\xi}(bt)$.
+\end{proposition}
+\begin{proof}
+$\phi_{a+b\xi}(t) = \mathbb{E} \exp\{i(a+b\xi)t\} = \exp\{iat\} \mathbb{E} \exp\{b\xi t\} = \exp\{iat\} \phi_{\xi}(bt).$
+\end{proof}
+\begin{exc}
+Find the characteristic functions of random variable $\xi$, if $\xi$ is: \\
+i) binomial r.v. \\
+ii) normal r.v. \\
+iii) poisson r.v. \\
+iv) gamma r.v. \\
+v) exponential r.v. \\
+vi) chi-squared r.v. \\
+vii) laplace r.v.  \\
+\end{exc}
+\begin{theorem}
+Levy's Continuity Theorem. \\ Given $\xi_1, \dots, \xi_n$ r.v.s with their characteristic functions $\phi_1, \dots, \phi_n$, respectively. If there is a pointwise convergence in characteristic functions, i.e. $\phi_n \xrightarrow{{\cal{P}}} \phi$ and if $\phi(t)$ is continuos at $t=0$, then:
+\begin{itemize}
+\item $\xi_n$ converges in distribution to a random variable $\xi$, i.e. $\xi_n \xrightarrow{{\cal{D}}} \xi$;
+\item $\phi(\cdot)$ is a characteristic function of some r.v. $\xi$;
+\end{itemize}
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+\begin{theorem}
+Boncher Theorem. \\
+If $\phi$ is positive definite function and is continuos at $0$ with $\phi(0)=1$. Then there exists a random variable $\xi$, such that $\phi_{\xi}(t) =\int_{\mathbb{R}}\exp\{itx\} f_{\xi}(x) dx =  \phi(t)$, or more generally there exists a probability measure $\mu$ on $\mathbb{R}$ such that, $\phi(t) = \int_{\mathbb{R}}\exp\{itx\} \mu(dx)$
+\end{theorem}
+\begin{proof}
+\end{proof}
