@@ -1,0 +1,275 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Margins and Heading and Such
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz, tkz-euclide}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{intersections}
+
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main}
+
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6.25in}
+\setlength{\topmargin}{-0.4in}
+\setlength{\textheight}{8.5in}
+\usepackage[russian,english]{babel}
+
+\newcommand{\heading}[5]{
+   \renewcommand{\thepage}{#1-\arabic{page}}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf Записи по увлекательной математике}
+         \hfill #2 }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill #5  \hfill} }
+       \vspace{2mm}
+       \hbox to 5.78in { {\it #3 \hfill #4} }
+      }
+   }
+   \end{center}
+   \vspace*{4mm}
+}
+
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0.1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MODIFY THE FOLLOWING LINE  WITH YOUR NAME
+
+\newcommand{\handout}[3]{\heading{#1}{#2}{Аршак Минасян}{}{#3}}
+\newcommand{\han}[4]{\heading{#1}{#2}{Аршак Минасян}{}{#3}}
+
+\begin{document}
+\handout{1}{\today}{Геометрия и вероятность}
+
+{\bf Disclaimer.} Этот текст представляет собой краткое введение в геометрическую вероятность. Автор допускает наличие ошибок/опечаток в тексте и будет благодарен за их нахождение. Также приветствуются комментарии, вопросы и пожелания. Почта автора arshak.minasyan@skolkovotech.ru.
+%\textbf{Collaborators:} I collaborated with the following students on
+%this assignment: <Insert Names Here>
+\section{Исходные наблюдения}
+Итак, начнем с наблюдения очень простого, хотя совсем неиттуитивного геометрического факта:
+\begin{itemize}
+\item Рассмотрим гомотетию $x \to \lambda x$, следовательно объем фигуры $D$ меняется $|D| \to \lambda^n |D|$, поскольку $x \in \mathbb{R}^n$. Пусть $\lambda = 1 + \varepsilon, \varepsilon > 0 \implies (1+\varepsilon)^n$ может быть очень большим, если $n \gg 1$.
+Наглядным примером является арбуз в $\mathbb{R}^{1000}$. Предположим, что мы живем в 1000-мерном пространстве и купили арбуз с радиусом в один метр. Как все обычные люди (только они живут в $\mathbb{R}^3$) отдираем корку толщины в один сантиметр. Давайте посмотрим что останется 
+\begin{eqnarray}
+\lambda = \frac 1 {1- 10^{-2}} \implies \frac V {V_-} = \left[1 + \frac {10^{-2}}{1 - 10^{-2}}\right]^{1000} \approx 2.3 \times 10^4,
+\end{eqnarray}
+где $V$ это объем целого арбуза, а $V_-$ объем арбуза без корки. Следовательно,
+\begin{eqnarray}
+\frac {V - V_-}{V_-} \approx 2.3 \times 10^4,
+\end{eqnarray}
+что означает, что объем корки больше чем в 20000 раз больше, чем объем оставшегося арбуза. Итак, мы получили, что свойство концентрации $n-$мерного шара (гиперсферы), то есть почти весь объем $n-$мерного шара находится на границе. 
+\item Пусть имеем функцию $F(x) \le 1$ при $|x| \le 1$, где $x \in \mathbb{R}^n, \, n \gg 1$, тогда если фактически измерить значение функции в точках $x$, таких, что $|x| \le 1$ (по доказанному выше утверждению) $|x|$ будет примерно равна 1, что означает, что значения функции $F(x)$ также будут близки к $1$. 
+\item Обобщая пункт выше можно таким образом:
+\begin{eqnarray}
+f \in C(\mathbb{B}^n, \mathbb{R})\text{ и } f(\partial \mathbb{B}^n) = \text{const}, \text{ а противном случае --- любая},
+\end{eqnarray}
+тогда с точки зрения наблюдателя функция будет равна константе с большой вероятностью. 
+\end{itemize}
+\section{Более тонкие наблюдения и оценки}
+\begin{itemize}
+\item {\bf Отсекаемый объем}
+\par Пусть $\delta \in [0, 1]$
+\begin{center}
+\begin{tikzpicture}
+\tkzInit[xmax=4,ymax=4,xmin=-4,ymin=-4]
+%   \tkzGrid
+%   \tkzAxeXY
+\draw (0,0) circle (3cm);
+\draw[->] (-4.25,0) -- (4.25,0) coordinate (x axis);
+ \draw[->] (0,-4.25) -- (0,4.25) coordinate (y axis);
+ \draw[name path = C, red] (-0.3, -2.98496231131986) -- (-0.3, 2.98496231131986);
+ \draw[name path = D, red] (0.3, -2.98496231131986) -- (0.3, 2.98496231131986);
+\filldraw (-0.3, 0) circle[radius=1.5pt];
+ \node[above left=0.5pt of {(-0.3,0)}, outer sep=1pt,fill=white] {-$\delta$};
+ \filldraw (0.3, 0) circle[radius=1.5pt];
+ \node[above right=0.5pt of {(0.3,0)}, outer sep=1pt,fill=white] {$\delta$};
+ \draw[red] (0.3, 0) circle (2.98496231131986cm);
+ \draw[red] (0,0) -- (0.3, 2.98496231131986);
+\end{tikzpicture}
+\end{center}
+Предположим, что имеем шар в $\mathbb{R}^n$ и отсекаем маленькую полоску вокруг центра ширины дельта. Радиус красной окружности равен $r = (1-\delta^2)^{\frac 1 2}$ и для того, чтобы точка $(1-\delta, 0)$ лежала в этой построенной окружности (красной) нужно, чтобы $1 - \delta \le (1-\delta^2)^{\frac 1 2} \implies 2\delta(1-\delta) \le 0$, что верно, так как $\delta \in [0,1]$. Итак, что мы делаем, отрезаем часть шара, которая лежит правее горизонтальной линии проходящей через $\delta$ и считаем отношение объема этой части к объему исходного шара. 
+\begin{eqnarray}
+R = \frac {\frac 1 2 (1-\delta^2)^{\frac n 2}}{1^n} = \frac 1 2 e^{\frac n 2 \log(1-\delta^2)} < \frac 1 2 e^{- \frac 1 2 \delta^2 n}.
+\end{eqnarray}
+При $n \gg 1$ получаем, что $R \to 0$, что означает, что при больших $n$ мы почти ничего не отрезаем, то есть вся концентрация содержится в узкой полосочке центра шара ширины $\delta$. Аналогично можно сделать для левой части. 
+\item {\bf Отсекаемая площадь} 
+\par Площадь гиперсферы в $n-$мерном пространстве равна $nC_n R^{n-1}$ и отношение не меняется. Поэтому аналогичные выводы можно сделать и для площади $n-$мерного шара. 
+\begin{eqnarray}
+\mathbb{P}_n( x \in \Omega_{\delta}) > 1 - 2 \cdot e^{-\frac 1 2 \delta^2 n }, 
+\end{eqnarray}
+где $\Omega_{\delta}$ это полосочка ширины дельта вокруг центра шара.
+%\item {\bf Концентрация площади сферы в $\mathbb{R}^n, \,\, n \gg 1$}
+\item {\bf Ортогональность пары векторов}
+\par Утверждается, что пара векторов в $n-$мерном единичном шаре "почти" ортогональны, то есть $\langle\,v_1, v_2 \rangle \approx 0$.
+ Вектора выбираются из многомерного равномерного распределения, то есть каждая компонента вектора $v = (v_1, \dots, v_n)^T$ это случайная величина распределенная, как $\mathcal{U}[0,1]$. 
+Распределение на шаре задается как отношение площядей, поэтому для получения результатом мы можем восполльзоваться резульататми полученными в предыдующих подпунктах. 
+\par Итак, сначала мы фиксируем вектор $v_1$ как показано на картинке, и берем случайным вектор $v_2$ на единичном шаре. Оценим вероятность того, что скалярное произведение этих двух векторов больше, чем наперед заданная константа $\delta$.
+\begin{eqnarray}
+\mathbb{P}_n(|\langle\, v_1, v_2 \rangle| > \delta) < 2 \cdot e^{-\frac 1 2 \delta^2 n}.
+\end{eqnarray}
+\begin{center}
+\begin{tikzpicture}
+\tkzInit[xmax=4,ymax=4,xmin=-4,ymin=-4]
+%   \tkzGrid
+%   \tkzAxeXY
+\draw (0,0) circle (3cm);
+\draw[->] (-4.25,0) -- (4.25,0) coordinate (x axis);
+ \draw[->] (0,-4.25) -- (0,4.25) coordinate (y axis);
+ \draw[name path = C, red] (-0.3, -2.98496231131986) -- (-0.3, 2.98496231131986);
+ \draw[name path = D, red] (0.3, -2.98496231131986) -- (0.3, 2.98496231131986);
+\filldraw (-0.3, 0) circle[radius=1.5pt];
+ \node[above left=0.5pt of {(-0.3,0)}, outer sep=1pt,fill=white] {-$\delta$};
+ \filldraw (0.3, 0) circle[radius=1.5pt];
+ \node[above right=0.5pt of {(0.3,0)}, outer sep=1pt,fill=white] {$\delta$};
+ \draw[->, green] (0,0) -- (1, 2.8284271247461903);
+  \node[above =0.5pt of {(1, 2.8284271247461903)}, outer sep=1pt] {$v_2$};  
+ \draw[->, green] (0,0) -- (3, 0);
+  \node[above right=0.5pt of {(3, 0)}, outer sep=1pt] {$v_1$};
+ \draw[->, green] (1, 2.8284271247461903) -- (1, 0);  
+\end{tikzpicture}
+\end{center}
+Получается, что скалярное произведение двух случайных векторов в $n-$мерном пространстве больше, чем заданная $\delta$ с маленькой вероятностью. \\
+Рассмотрим несколько пар значений $\delta$ и $n$. 
+\par Q: Какова интуиция этого феномена?
+\par Q: Что будет, если отрезать такую же полосочку сверху и снизу, как показано в картинке ниже? Парадокс в том, что "почти-весь-объем" не может быть одновременно и там, и там. 
+ \begin{center}
+\begin{tikzpicture}
+\tkzInit[xmax=4,ymax=4,xmin=-4,ymin=-4]
+%   \tkzGrid
+%   \tkzAxeXY
+\draw (0,0) circle (3cm);
+\draw[->] (-4.25,0) -- (4.25,0) coordinate (x axis);
+ \draw[->] (0,-4.25) -- (0,4.25) coordinate (y axis);
+ \draw[name path = C, red] (-0.3, -2.98496231131986) -- (-0.3, 2.98496231131986);
+ \draw[name path = D, red] (0.3, -2.98496231131986) -- (0.3, 2.98496231131986);
+\filldraw (-0.3, 0) circle[radius=1.5pt];
+% \node[above left=0.5pt of {(-0.3,0)}, outer sep=1pt,fill=white] {-$\delta$};
+ \filldraw (0.3, 0) circle[radius=1.5pt];
+ %\node[above right=0.5pt of {(0.3,0)}, outer sep=1pt,fill=white] {$\delta$};
+ \draw[name path = C, blue] (-2.98496231131986, -0.3) -- (2.98496231131986, -0.3);
+ \draw[name path = D, blue] (-2.98496231131986, 0.3) -- (2.98496231131986, 0.3);
+ \filldraw (0, 0.3) circle[radius=1.5pt];
+ \filldraw (0, -0.3) circle[radius=1.5pt];
+\end{tikzpicture}
+\end{center}
+
+\end{itemize}
+\section{Нелинейный закон больших чисел (ЗБЧ)}
+\begin{itemize}
+\item {\bf Изопериметрическое неравенство}
+\par Пусть имеем выпуклое тело $D$. Классические изоперметрические неравенства были получены после решения следующей оптимизационной задачи:
+\begin{eqnarray}
+|\partial D| \to \min, \,\, \text{s.t. }|D| = c
+\end{eqnarray}
+или, двойственную к ней 
+\begin{eqnarray}
+|D| \to \max, \,\, \text{s.t. } |\partial D| = c
+\end{eqnarray}
+Известно, что решением этих задач является гиперсфера. \\
+Определим $D_{\varepsilon}$ как $\varepsilon-$раздутие тела $D$. О раздутии можно думать как о гомотетии с коэффициентом $1 + \varepsilon$. Рассматривается следующая задача
+\begin{eqnarray}\label{isoperim}
+|D_{\varepsilon} \setminus D| \to \min, \,\, \text{ s.t. } |D| = c,
+\end{eqnarray}
+где $D-$ это какая-то область отрезанная сверху (выпуклая шапка сферы) сферы единичного радиуса. 
+\par {\it Замечание.} Заметим, что минимизация в обеих задачах идет по всевозможным выпуклым телам, поэтому является сложной, с точки зрения оптимизации, задачей. 
+\par Решением этой задачи является так называемая сферическая шапочка, то есть минимум заданной в \eqref{isoperim} задачи достигается, если $D = A\, -$ сферическая шапочка с объемом $c$, то есть, 
+\begin{eqnarray}
+| A_{\varepsilon}\setminus A | \le |D_{\varepsilon}\setminus D|, \,\, \forall D
+\end{eqnarray}
+\par {\it Доказательство изопериметрического неравенства*.} 
+%\item {\bf Медиана} 
+\par Рассмотрим вероятностную меру на сфере и рассмотрим такую штуку, которая делит заданную единичную сферу пополам, то есть $\frac 1 2 = | D | = | A |$. Возьмем $\varepsilon-$ раздутие заданного безобразия $D$ и $A$. Мы уже знаем, что 
+\begin{eqnarray}
+| D_{\varepsilon}\setminus D | \ge |A_{\varepsilon}\setminus A|, \,\, \forall D.
+\end{eqnarray}
+С другой стороны, во втором разделе мы доказали, что мера концентрируется в $\delta-$ полосочке сферы, следовательно, получается, что в $\delta-$ окрестности медианной плоскости концентрируется почти вся площадь. Получается, что в $\varepsilon-$ окрестности медианной линии концентрируется вся площадь сферы, более того, чем медианная линия безобразная, тем больше площадь в рассмотренной окрестности. 
+%\item {\bf Медианная функция}
+\item {\bf Стабилизация значений*}
+Предыдущий результат можно обобщить вводя медианную функцию следующим образом. Пусть $f : S^n \to \mathbb{R}$, тогда медианная функция $f$ обозначается $M_f$ определяется таким образом 
+\begin{eqnarray}
+\left| \{x \in S^n \, | \, f(x) \ge M_f \}\right| \ge \frac 1 2 \\
+\left| \{x \in S^n \, | \, f(x) \le M_f \}\right| \ge \frac 1 2 
+\end{eqnarray}
+Теперь, предположим, что $f \in \text{Lip}_1(S^n, \mathbb{R}), n \gg 1$. \\
+{\it Замечание}. Липшицевость необязательно, можно ввести другие, более мягкие условия регулярности. Важно, чтобы функция не скакала, как функция Дирихле, например.
+\par Утверждается, что для $x_1, x_2 \in S^n$ верно следующее $f(x_1) \approx f(x_2) \approx M_f$. Тогда, 
+\begin{eqnarray}
+\text{Pr}\left\{|f(x) - M_f| > \delta \right\} < 2 \cdot e^{-\frac 1 2 \delta^2 n}
+\end{eqnarray}
+Этот результат можно обобщить, если радиус сферы равен $r$, а $f \in \text{Lip}_L(S^n, \mathbb{R})$ следующим образом 
+\begin{eqnarray}
+\text{Pr}\left\{|f(x) - M_f| > \delta \right\} < 2 \cdot e^{-\frac 1 2 \left(\frac{\delta}{rL}\right)^2 n}.
+\end{eqnarray}
+Последнее известно, как нелинейный закон больших чисел, наблюдается стабилизация значений. Для сравнения напомним (линейный) закон больших чисел в обычном виде: Пусть $\xi_1, \xi_2, \dots$ бесконечная последовательность одинаково распределенных некоррелированных случайных величин и $\mathbb{E}\xi_i = \mu$, тогда 
+\begin{eqnarray}
+\frac 1 n \sum_{i=1}^n {\xi_i}  \xrightarrow{\mathbb{P}} \mu,
+\end{eqnarray}
+или
+\begin{eqnarray}
+\lim_{n\to \infty} \mathbb{P}\left(\left|\frac 1 n \sum_{i=1}^n {\xi_i} - \mu \right| < \varepsilon\right) = 1
+\end{eqnarray}
+\par {\it Пример}. Температура в аудитории, с точки зрения наблюдателя, постоянна, хотя, на самом деле, она не постоянна.  
+\par В теории вероятностей очень важным объектом является следующая случайная величина $S_n = \frac 1 n \left(\sum_{i=1}^n x_1 + \dots x_n \right)$. Рассмотрим сферу $x_1^2 + \dots x_n^2 = \sigma^2 n$. Очевидно, что функция $S_n$ Липшицева, так как $|\nabla S_n| = \frac 1 {\sqrt{n}} = L$ (константа Липшица). Радиус сферы $r_n = \sigma \sqrt{n}$, тогда имеем
+\begin{eqnarray}
+\text{Pr}\left\{|S_n - 0| > \delta \right\} < 2 \cdot \exp\left({-\frac 1 2 \left(\frac{\delta}{\sigma}\right)^2 n}\right).
+\end{eqnarray}
+Последнее неравенство нам говорит, что типичные уклонения $S_n$ от $0$ будут наблюдаться при $\delta \asymp \frac 1{\sqrt{n}}$. С выражением $\frac 1{\sqrt{n}}$ в теории вероятностей связаны многие феномены, в частности, это типичная скорость сходимости. Если $\delta$ стремится к 0, с большей скоростью, скажем, $\frac 1 n$ или $\frac 1 {n^2}$, то в правой части мы получаем последовательность стремящееся к 0, следовательно такие уклонения очень редкие и не типичные. 
+\end{itemize}
+\section{Шар в $\mathbb{R}^n$. Центральная предельная теорема (ЦПТ)}
+\begin{itemize}
+\item {\bf ЦПТ}
+\par Напомним центральную предельную теорему в самом обычном и простом виде. Пусть $\xi_1, \dots, \xi_n$ i.i.d., при том $\mathbb{E}\xi_i = a, \mathbb{E} \xi^2_i < \infty$ и $\mathbb{V}ar \xi = \sigma^2$, тогда 
+\begin{eqnarray}
+\frac{\xi_1 + \dots + \xi_n - na}{\sigma \cdot \sqrt{n} } \xrightarrow{w} \mathcal{N}(0, 1)
+\end{eqnarray}
+\par Рассмотрим сферу в $\mathbb{R}^n$ объема 1, тогда порядок радиуса $r_n \asymp \sqrt{n}$. Действительно, 
+\begin{eqnarray}
+|B^n(r_n) | = \frac{\pi^{n/2}}{\Gamma(n/2 + 1)} r_n^n= 1, 
+\end{eqnarray}
+тогда используя асимптотическое выражение для гамма функции в бесконечности и формулу Стирлинга, получаем
+\begin{eqnarray}
+r_n = \frac {\sqrt[n]{\Gamma\left(\frac n 2 + 1\right)}}{\sqrt{\pi}} \sim \frac 1 {\sqrt{\pi}}{\sqrt{\frac{n}{2e}}} \cdot \sqrt[n]{\pi n} \to \sqrt{\frac{n}{2\pi e}}, {\text { as } } n \to \infty.
+\end{eqnarray}
+%\item {\bf Физическое объеснение}
+Грубо говоря, получается, что единичный шар оказывается огромным (в смысле линейных размеров), то есть $r_n \asymp \sqrt{n}$, а объем равен $1$. Аналогичное утверждение верно и для единичного куба размера $n$, объем также равен 1, но главная диагональ имеет длину $\sqrt{n}$.
+\par Попробуем дать физическое объяснение этому факту. В аудитории $n$ молекул и они как-то двигаются, запишем их кинетическую энергию 
+\begin{eqnarray}\label{energy}
+\frac 1 2 mv_1^2 + \dots \frac 1 2 {mv_n^2} \asymp \sigma^2 n,
+\end{eqnarray}
+последнее приближение мотивировано тем фактом, что если и в этой, и в следующей аудитории $n$ молекул, то если их брать вместе, то порядок будет пропорционален числу молекул, а то, что написано в \eqref{energy} есть $3n-$ мерная сфера, радиус которой порядка $r \asymp \sigma \sqrt{n}$.
+\item {\bf Проекция шара*}
+\end{itemize}
+Q: Что можно сказать про проекцию шара и сферы на прямую? 
+\section{Куб. $\mathbb{I}^n \subset \mathbb{R}^n$}
+\par Пусть у нас есть куб в $n-$ мерном пространстве. В третьем разделе мы обсудили стабилизацию значений на сфере, теперь перейдем к кубу. С кубом дела обстоят посложнее, потому что тут нарушается равноправность переменных $(x_1, \dots, x_n)$. Имеется в виду следующее, если двигаться вдоль любой оси координат, то только одна переменная $x_i$ будет меняться и влияние других переменных $x_{-i}$ будет ничтожным. Равноправие этих переменных будет наблюдаться только в $\varepsilon-$ окрестности главной диагонали. 
+\par Рассмотрим проекцию вершин заданного куба на заданную прямую $\alpha$. Пусть $\alpha = (\alpha_1, \dots, \alpha_n) \in \mathbb{R}^n$ и $|\alpha| = 1$. Нас будет интересовать следующая вероятность $\text{Pr}\left\{| \langle \alpha, x \rangle | > t\right\}$. Известна следующая оценка этой вероятности (неравенство Бернштейна)
+\begin{eqnarray}
+\text{Pr}\left\{| \langle \alpha, x \rangle | > t\right\} < 2 \cdot \exp\left(-\frac {t^2} 2\right)
+\end{eqnarray}
+Напомним, что в этом случае мы бегаем только по вершинам куба, причем куб задан таким образом $|x_i| = 1, \,\, \forall i \in [1,n]$. В случае, когда направление альфа совпадает с направлением оси $x_i$, тогда скалярное произведение больше чем 1 быть не может, следовательно не имеет смысла брать $t$ больше 1, как следствие, $\text{Pr}\left\{| \langle \alpha, x \rangle | > t\right\}$ не может быть ограничена маленьким числом. 
+\par Q: Когда можно брать $t$ большим? 
+\par A: Есть смысл $t$ брать большим, когда направление альфа совпадает с направлением главной диагонали куба, то есть когда $\alpha = \left(\frac 1 {\sqrt{n}}, \dots, \frac 1 {\sqrt{n}}\right)$. 
+\par Рассмотрим, теперь, полный куб, то есть $x \in \mathbb{R}^n$ и $|x_i| \le \frac 1 2, \,\,\, \forall i \in [1, n]$. В таком случае, рассмотренная ранее вероятность имеет следующую оценку 
+\begin{eqnarray}
+\text{Pr}\left\{| \langle \alpha, x \rangle | > t\right\} < 2 \cdot \exp\left(-6{t^2}\right)
+\end{eqnarray}
+Q: Что можно сказать про концентрацию меры в кубе $\mathbb{I}^n$?
+\par A: Из неравенства легко понять, что 
+\section{Теория кодирования}
+\section{Задача Гротендика и Теорема Дворецкого}
+\end{document}
