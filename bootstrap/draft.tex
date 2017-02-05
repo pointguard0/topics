@@ -1,0 +1,246 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{color}
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6.25in}
+\setlength{\topmargin}{-0.4in}
+\setlength{\textheight}{8.5in}
+\usepackage[russian,english]{babel}
+
+\renewcommand{\labelenumi}{(\alph{enumi})} % Use letters for enumerate
+% \DeclareMathOperator{\Sample}{Sample}
+\let\vaccent=\v % rename builtin command \v{} to \vaccent{}
+\usepackage{enumerate}
+\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} % for vectors
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}} 
+% for vectors of Greek letters
+\newcommand{\uv}[1]{\ensuremath{\mathbf{\hat{#1}}}} % for unit vector
+\newcommand{\abs}[1]{\left| #1 \right|} % for absolute value
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+\let\underdot=\d % rename builtin command \d{} to \underdot{}
+\renewcommand{\d}[2]{\frac{d #1}{d #2}} % for derivatives
+\newcommand{\dd}[2]{\frac{d^2 #1}{d #2^2}} % for double derivatives
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} 
+% for partial derivatives
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}} 
+% for double partial derivatives
+\newcommand{\pdc}[3]{\left( \frac{\partial #1}{\partial #2}
+ \right)_{#3}} % for thermodynamic partial derivatives
+\newcommand{\ket}[1]{\left| #1 \right>} % for Dirac bras
+\newcommand{\bra}[1]{\left< #1 \right|} % for Dirac kets
+\newcommand{\braket}[2]{\left< #1 \vphantom{#2} \right|
+ \left. #2 \vphantom{#1} \right>} % for Dirac brackets
+\newcommand{\matrixel}[3]{\left< #1 \vphantom{#2#3} \right|
+ #2 \left| #3 \vphantom{#1#2} \right>} % for Dirac matrix elements
+\newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot \v{#1}} % for divergence
+\newcommand{\curl}[1]{\gv{\nabla} \times \v{#1}} % for curl
+\let\baraccent=\= % rename builtin command \= to \baraccent
+\renewcommand{\=}[1]{\stackrel{#1}{=}} % for putting numbers above =
+\providecommand{\wave}[1]{\v{\tilde{#1}}}
+\providecommand{\fr}{\frac}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\seq}{\subseteq}
+\providecommand{\e}{\epsilon}
+\providecommand{\mcN}{\mathcal{N}}
+\providecommand{\mcL}{\mathcal{L}}
+
+\newtheorem{prop}{Proposition}
+\newtheorem{ex}{Example}[section]
+\newtheorem{re}{Remark}[section]
+\newtheorem{exer}{Exercise}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{p}{Problem}[section]
+\usepackage{cancel}
+ \newenvironment{s}{%\small%
+        \begin{trivlist} \item \textbf{Proof}. }{%
+            \hspace*{\fill} $\blacksquare$\end{trivlist}}%
+% ***********************************************************
+% ********************** END HEADER *************************
+% ***********************************************************
+
+\title{Bootstrap validity}
+\author{Arshak Minasyan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section*{Guideline} 
+\begin{itemize}
+\item Introduction to the framework of GLMs
+\item Proof of Fisher and/or Wilks expansions 
+\item {\color{blue} Gaussian approximation/comparison}  
+\end{itemize}
+\section*{Main steps}
+\begin{enumerate}
+\item Use Fisher expansion for both $\mathbf{Y}$-world and bootstrap world. 
+\item Use GAR for them, and {\it{finally}}
+\item compare these two gaussian approximations using Pinsker's inequality. 
+\end{enumerate}
+\section{Introduction}
+\subsection{Linear case} 
+In this section we discuss the simplest linear model and explicitly show the validity of bootstrapping procedure. 
+\par Consider a model 
+\begin{align}\label{linear}
+\mathbf{Y} = \Psi^T \theta + \mathbf{\e},
+\end{align}
+where $\Psi$ is a given design with sizes $p \times n$ and $\mathbf{\e} \sim \mathcal{N}(0, \Sigma)$ -- is our assumption about the noise. The log-likelihood has the following form
+\begin{align}\label{p}
+L(\theta) = - \frac 1 2 (\mathbf{Y} - \Psi^T \theta)^T \Sigma^{-1} (Y - \Psi^T \theta) + R, 
+\end{align}
+where $R$ is the remainder and does not depend on parameter $\theta$. Define the following objects 
+\begin{align}
+D^2 \stackrel{\text{def}}{=} - \nabla^2 \mathbb{E} L(\theta) = \Psi \Sigma^{-1} \Psi^T, \qquad \tilde{\theta} = D^{-2} \Psi \Sigma^{-1} \mathbf{Y}
+\end{align}
+\begin{align}
+\xi \stackrel{\text{def}}{=} D^{-1} \nabla L(\theta^*) = D^{-1} \Psi \Sigma^{-1}(\mathbf{Y} - \mathbf{f}), \qquad {\theta}^* = D^{-2} \Psi \Sigma^{-1} \mathbf{f},
+\end{align}
+where $\mathbf{f} = \mathbb{E} \mathbf{Y}$. One can see that 
+\begin{align}\label{fisher_wilks_linear}
+D(\tilde{\theta} - \theta^*) \equiv \xi, \qquad L(\tilde{\theta}) - L(\theta^*) \equiv \frac{\| \xi \|^2}{2},
+\end{align}
+the latter could be derived using the Tailor expansion of the second order around maximum likelihood estimator $\tilde{\theta}$ and the use of $\nabla L(\tilde{\theta}) = 0$. 
+\par Here we see that the Fisher and Wilks expansions are saturated, namely we they are equal without any conditions and could be applied to a data of any size. These results are based only on quadraticity of the likelihood function $L(\theta)$ in $\theta$. 
+\par Denoting $\e = \mathbf{Y} - \mathbf{f}$ one can see that the normalized score has the following form 
+\begin{align}
+\mathbf{\nabla} =  \breve{\Psi} \e,
+\end{align}
+which is the linear combination of $\e_i$ and hence, under the assumption of normality of the error term we have that the the normalized score $\mathbf{\nabla}$ is a Gaussian random variable with zero mean and covariance matrix $S$:
+\begin{align}
+S \stackrel{\text{def}}{=} \mathbb{V}ar (\mathbf{\nabla}) = \breve{\Psi} \Sigma \breve{\Psi}^T.
+\end{align}
+\begin{re}
+Note that this derivations work under the strong assumption of the normality of the error term, since we wrote the likelihood function using the probability density function of the multivariate normal distribution.  
+\end{re}
+\subsubsection{Bootstrap counterpart} 
+Define the bootstrap counterpart of the likelihood function from \eqref{p}
+\begin{align}\label{p^b}
+L^{\flat}(\theta) = \sum_{i=1}^n \ell_i (\theta; Y_i) \cdot w_i^{\flat},
+\end{align}
+where $w_i^{\flat}$s are known as bootstrap multipliers (weights) and we are free to choose this multipliers. The only constrains are $\mathbb{E}^{\flat}w_i^{\flat} = 1, \, \mathbb{V}ar^{\flat} w_i^{\flat} = 1$ and $\mathbb{E}^{\flat}\exp\{w_i^{\flat}\} < +\infty$.
+\par Since, we have assumed that the errors $\e_i$s are also normal, then in order to prove bootstrap validity we have to compare the covariance matrices of the score with respect to the measure $\mathbb{P}$ and the score with respect to the measure $\mathbb{P}^{\flat}$. 
+\par Now we examine the following expression 
+\begin{align}
+\|S^{1/2} (S^{\flat})^{-1} S^{1/2} - I_n \|_{\text{op}}
+\end{align}
+\subsection{Generalized Linear regression} 
+In this section we derive the necessary terms in general case (without decomposing the initial variable vector $v$; for the ease of representation we denote it $\theta$) needed for further analysis for the special class of distributions called exponential class of distributions.  
+\par Further we will assume $\mathcal{P}$ to be an exponential family (EF), which has a number of good properties, namely, the log-likelihood function could be written in this way $\ell(v, y) = vy - g(v)$ and 
+\begin{align}
+L(\theta) = \sum_{i=1}^n \ell(Y_i, f(X_i)) = \sum_{i=1}^n \{ Y_i \Psi_i^T \theta - g(\Psi_i^T \theta) \} = \mathbf{Y}^T \Psi \theta - A(\theta)
+\end{align}
+with 
+\begin{align}
+A(\theta) \stackrel{\text{def}}{=} \sum_{i=1}^n g(\Psi_i^T \theta)
+\end{align}
+Define 
+\begin{align}
+D^2 \stackrel{\text{def}}{=} \nabla^2 A(\theta) = \sum_{i=1}^n \Psi_i \Psi_i^T g''(\Psi_i^T \theta).
+\end{align}
+We also define the Fisher information matrix
+\begin{eqnarray}
+\mathbb{F} = D^2 = - \nabla^2 \mathbb{E} L(\theta^*) = \sum_{i=1}^n \Psi_i \Psi_i^T g''(\Psi_i^T \theta^*) = \Phi g''(\Psi^T \theta^*) \Psi^T. 
+\end{eqnarray}
+We subtract the deterministic part from $L(\theta)$ and get $\zeta(\theta) = L(\theta) - \mathbb{E} L(\theta)$, then 
+\begin{eqnarray}
+\nabla \zeta(\theta) = \sum_{i=1}^n \e_i \Psi_i = \Psi \e, \qquad V^2 = \mathbb{V}ar\left(\nabla \zeta(\theta)\right) = \Psi \mathbb{V}ar(\e) \Psi^T,
+\end{eqnarray}
+where $\e_i = Y_i - \mathbb{E} Y_i$.
+\par The Fisher expansion reads as 
+\begin{align}
+\| D(\tilde{\theta} - \theta^*) - \xi \| \le \diamondsuit(x) 
+\end{align}
+on a dominating (elliptic) set of probability at least $1 - e^{x}$, where $\xi$ is defined as follows 
+\begin{align}
+\xi \stackrel{\text{def}}{=}  D^{-1} \nabla L(\theta^*) = D^{-1} \nabla \zeta(\theta^*) =D^{-1}\Psi \e.
+\end{align}
+The latter means that $\xi$ is simply the linear combination of errors $\e_i$. We achieve this result thanks to the structure of likelihood for EFc which stochastic part is linear in $\mathbf{Y}$, the only source of randomness. 
+\subsection{Bootstrap counterpart}
+In the bootstrap world we have 
+\begin{align}
+L^{\flat}(\theta) = \sum_{i=1}^n \ell_i(\theta) w_i^{\flat} = \sum_{i=1}^n \left(Y_i \Psi_i^T \theta - g(\Psi_i^T \theta)\right) w_i^{\flat} = \theta^T \Psi \mathcal{W}^{\flat}\mathbf{Y} - A^{\flat}(\theta)
+\end{align}
+with 
+\begin{align}
+A^{\flat}(\theta) \stackrel{\text{def}}{=} \sum_{i=1}^n g(\Psi_i^T \theta) w_i^{\flat}.
+\end{align}
+Note that 
+\begin{align}
+\mathbb{E}^{\flat} A^{\flat} (\theta) = A.
+\end{align}
+We define the counterpart of zeta function in bootstrap world as follows 
+\begin{align}
+\zeta^{\flat}(\theta) = \nabla L^{\flat}(\theta) - \mathbb{E}^{\flat} \nabla L^{\flat}(\theta)
+\end{align}
+Simple algebra and the fact that $\nabla \mathbb{E}^{\flat}L^{\flat}(\tilde{\theta}) = 0$ brings us to the following expression 
+\begin{align}
+\zeta^{\flat}(\tilde{\theta}) = \sum_{i=1}^n \left[Y_i \Psi_i^T - \Psi_i g'(\Psi_i^T \tilde{\theta})\right] \e_i^{\flat} = Y^T \Psi \mathcal{E}^{\flat} - \nabla A(\tilde{\theta}) \mathcal{E}^{\flat},
+\end{align}
+where $\e_i^{\flat} = w_i^{\flat} - 1$.
+The Fisher expansion in bootstrap world has the following form: 
+\begin{align}
+\| D(\tilde{\theta}^{\flat} - \tilde{\theta}) - \xi^{\flat} \| \le \diamondsuit^{\flat}(x) 
+\end{align}
+One can see that the standartized score in real world is 
+\begin{align}
+\xi = D^{-1} \Psi \mathbf{\e} 
+\end{align}
+and the standartized score in bootstrap world is 
+\begin{align}
+\xi^{\flat} = \breve{D}^{-1} \left[\mathbf{Y}^T \Psi - \nabla A(\tilde{\theta})\right] \mathcal{E}^{\flat} | \mathbf{Y} \sim \mathcal{N}(0, V^2),
+\end{align}
+since the random components with respect to the measure $\mathbb{P}^{\flat}$ are standard normal random variables $\e_i^{\flat} \, | \, \mathbf{Y} \sim \mathcal{N}(0, 1)$ by construction.
+\par In order to proceed with bootstrap validity we need to compare these two standartized scores. 
+\section{Main}
+We will discuss the case when the error distribution comes from exponential family with canonical parameter (EFc). 
+\par We define the oracle of described model as $v^* = \arg\max_{v} \mathbb{E} L(v, \mathbf{Y})$, while the data-driven estimator for the oracle $v^*$ is defined as $\tilde{v} = \arg\max L (v | Y)$. Note that the source of randomness in $L(v, \mathbf{Y})$ is behind $\mathbf{Y}$, the distribution of which, in general, is unknown. 
+\par We introduce the bootstrap counterpart of (log) likelihood function $L(\cdot)$ as follows 
+\begin{align}\label{bootstrap}
+L^{\flat}(v) = \sum_{i=1}^n \ell_i(v | \mathbf{Y}) \cdot w_i^{\flat}, 
+\end{align}
+where $w_i^{\flat}$ are known as bootstrap weights with $\mathbb{E} w_i^{\flat} = 1$,  $\mathbb{V}\text{ar} \, w_i^{\flat} = 1$ and $\mathbb{E} \exp(w_i^{\flat}) < \infty$ for all $i \in [1, n]$. \par One can see that these two log-likelihood function are very similar to each other, but indeed live in different probability spaces, since the log-likelihood in \eqref{real} is the function of random data $\mathbf{Y}$, while the log-likelihood in \eqref{bootstrap} is the bootstrap counterpart of log-likelihood and considered to have a different source of randomness, namely, the randomness comes from the {\it{bootstrap multipliers}}; $\mathbf{Y}$ is fixed. The link between these two probability spaces is given with this simple observation 
+\begin{align}
+\mathbb{E}^{\flat} L^{\flat}(v) \equiv L(v)
+\end{align}
+\par Suppose $\mathbf{Y} = (Y_1, \dots, Y_n)$ is iid data coming from some unknown distribution $\mathcal{P}$. In general, $Y_i \sim \mathcal{P}_{f(x)}$, where $f(x)$ is the true function that we are trying to approximate. Consider $X_i \in \mathbb{R}^d$ and $Y_i \sim P_i \in (\mathcal{P}_{\v{v}})$, which means that $\exists v_i : P_i = P_{v_i}$. Function $\v{v}(x)$ can be represented in the following way
+\begin{eqnarray*}
+v(x) = \sum_{j=1}^{\infty} {\v{\theta}}_j \psi_j(x).
+\end{eqnarray*}
+Then, our linear parametric assumption is
+\begin{eqnarray}
+v(x) = \sum_{j=1}^{p+q} {\v{\theta}}_j \psi_j(x) = \sum_{j=1}^p {\v{\theta}}_j \psi_{j}(x) + \sum_{j= p+1}^{p+q} {\v{\theta}}_j \psi_{j}(x) \text{ for given basis $\psi_j(\cdot)$}.
+\end{eqnarray}
+Denote ${\v{\eta}}_{i} = {\v{\theta}}_{p + i}$ and column-vector ${\v{\eta}} = ({\v{\eta}}_1, \dots, {\v{\eta}}_{q})^T \in \mathbb{R}^q$.
+We will mostly discuss the case of finite $p$ and $q$.
+
+\par The log-likelihood function is defined as follows 
+\begin{align}\label{real}
+L(v; \mathbf{Y}) = \log \dfrac {d \mathbb{P}_{v}}{d\mu_0^n}(\mathbf{Y}) = \sum_{i=1}^n v_i Y_i - g(v_i),
+\end{align}
+where $v$ is the parameter of interest. Define 
+\begin{align}
+\tilde{v} = \arg\max_{v \in \Theta} L(v, \mathbf{Y}) \qquad v^* = \arg\max_{v \in \Theta} \mathbb{E} L(v, \mathbf{Y}) 
+\end{align}
+to be maximum likelihood estimator and oracle, respectively. 
+
+\section{Example. Bernoulli (Classification)?, Poisson}
+\section{Conditions}
+\section*{Appendix} 
+\subsection*{Notations of important terms} 
+\subsection*{Conditions} 
+\subsection*{Pinsker's Inequality and Gaussian comparison}
+\subsubsection*{Pinsker's inequality} 
+Pinsker's inequality is a great tool for bounding the total variation distance between two probability measures. 
+\subsection*{Proof of the main theorem}
+\end{document}

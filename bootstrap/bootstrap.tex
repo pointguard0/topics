@@ -1,0 +1,342 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{color}
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6.25in}
+\setlength{\topmargin}{-0.4in}
+\setlength{\textheight}{8.5in}
+\usepackage[russian,english]{babel}
+
+\renewcommand{\labelenumi}{(\alph{enumi})} % Use letters for enumerate
+% \DeclareMathOperator{\Sample}{Sample}
+\let\vaccent=\v % rename builtin command \v{} to \vaccent{}
+\usepackage{enumerate}
+\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} % for vectors
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}} 
+% for vectors of Greek letters
+\newcommand{\uv}[1]{\ensuremath{\mathbf{\hat{#1}}}} % for unit vector
+\newcommand{\abs}[1]{\left| #1 \right|} % for absolute value
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+\let\underdot=\d % rename builtin command \d{} to \underdot{}
+\renewcommand{\d}[2]{\frac{d #1}{d #2}} % for derivatives
+\newcommand{\dd}[2]{\frac{d^2 #1}{d #2^2}} % for double derivatives
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} 
+% for partial derivatives
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}} 
+% for double partial derivatives
+\newcommand{\pdc}[3]{\left( \frac{\partial #1}{\partial #2}
+ \right)_{#3}} % for thermodynamic partial derivatives
+\newcommand{\ket}[1]{\left| #1 \right>} % for Dirac bras
+\newcommand{\bra}[1]{\left< #1 \right|} % for Dirac kets
+\newcommand{\braket}[2]{\left< #1 \vphantom{#2} \right|
+ \left. #2 \vphantom{#1} \right>} % for Dirac brackets
+\newcommand{\matrixel}[3]{\left< #1 \vphantom{#2#3} \right|
+ #2 \left| #3 \vphantom{#1#2} \right>} % for Dirac matrix elements
+\newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot \v{#1}} % for divergence
+\newcommand{\curl}[1]{\gv{\nabla} \times \v{#1}} % for curl
+\let\baraccent=\= % rename builtin command \= to \baraccent
+\renewcommand{\=}[1]{\stackrel{#1}{=}} % for putting numbers above =
+\providecommand{\wave}[1]{\v{\tilde{#1}}}
+\providecommand{\fr}{\frac}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\seq}{\subseteq}
+\providecommand{\e}{\epsilon}
+\providecommand{\mcN}{\mathcal{N}}
+\providecommand{\mcL}{\mathcal{L}}
+
+\newtheorem{prop}{Proposition}
+\newtheorem{ex}{Example}[section]
+\newtheorem{re}{Remark}[section]
+\newtheorem{exer}{Exercise}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{p}{Problem}[section]
+\usepackage{cancel}
+ \newenvironment{s}{%\small%
+        \begin{trivlist} \item \textbf{Proof}. }{%
+            \hspace*{\fill} $\blacksquare$\end{trivlist}}%
+% ***********************************************************
+% ********************** END HEADER *************************
+% ***********************************************************
+
+\title{Bootstrap validity}
+\author{Arshak Minasyan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\newpage
+\section{Introduction}
+intro and literature review 
+\newpage 
+\section{Bootstrap validity} 
+In this section we will discuss the framework of Generalized Linear Models (GLMs) and show that the distribution of $\tilde{\theta} - \theta^*$ can be mimicked using the counterpart from bootstrap world $\tilde{\theta}^{\flat} - \tilde{\theta}$, i.e. 
+\begin{align}
+\mathcal{L}^{\flat}(\tilde{\theta}^{\flat} - \tilde{\theta} \, | \, \mathbf{Y}) \approx \mathcal{L}(\tilde{\theta} - {\theta}^*).
+\end{align}
+\subsection{Generalized Linear regression} 
+In this section we derive the necessary terms in general case (without decomposing the initial variable vector $v$; for the ease of representation we denote it $\theta$) needed for further analysis for the special class of distributions called exponential class of distributions.  
+\par Further we will assume $\mathcal{P}$ to be an exponential family (EF), which has a number of good properties, namely, the log-likelihood function could be written in this way $\ell(v, y) = vy - g(v)$ and 
+\begin{align}
+L(\theta) = \sum_{i=1}^n \ell(Y_i, f(X_i)) = \sum_{i=1}^n \{ Y_i \Psi_i^T \theta - g(\Psi_i^T \theta) \} = \mathbf{Y}^T \Psi \theta - A(\theta)
+\end{align}
+with 
+\begin{align}
+A(\theta) \stackrel{\text{def}}{=} \sum_{i=1}^n g(\Psi_i^T \theta)
+\end{align}
+Define 
+\begin{align}
+D^2 \stackrel{\text{def}}{=} \nabla^2 A(\theta) = \sum_{i=1}^n \Psi_i \Psi_i^T g''(\Psi_i^T \theta).
+\end{align}
+We also define the Fisher information matrix
+\begin{eqnarray}
+\mathbb{F} = D^2 = - \nabla^2 \mathbb{E} L(\theta^*) = \sum_{i=1}^n \Psi_i \Psi_i^T g''(\Psi_i^T \theta^*) = \Phi g''(\Psi^T \theta^*) \Psi^T. 
+\end{eqnarray}
+We subtract the deterministic part from $L(\theta)$ and get $\zeta(\theta) = L(\theta) - \mathbb{E} L(\theta)$, then 
+\begin{eqnarray}
+\nabla \zeta(\theta) = \sum_{i=1}^n \e_i \Psi_i = \Psi \e, \qquad V^2 = \mathbb{V}ar\left(\nabla \zeta(\theta)\right) = \Psi \mathbb{V}ar(\e) \Psi^T,
+\end{eqnarray}
+where $\e_i = Y_i - \mathbb{E} Y_i$.
+\par The Fisher expansion reads as 
+\begin{align}
+\| D(\tilde{\theta} - \theta^*) - \xi \| \le \diamondsuit(x) 
+\end{align}
+on a dominating (elliptic) set of probability at least $1 - e^{x}$, where $\xi$ is defined as follows 
+\begin{align}
+\xi \stackrel{\text{def}}{=}  D^{-1} \nabla L(\theta^*) = D^{-1} \nabla \zeta(\theta^*) =D^{-1}\Psi \e.
+\end{align}
+The latter means that $\xi$ is simply the linear combination of errors $\e_i$. We achieve this result thanks to the structure of likelihood for EFc which stochastic part is linear in $\mathbf{Y}$, the only source of randomness. 
+\subsection{Bootstrap counterpart}
+In the bootstrap world we have 
+\begin{align}
+L^{\flat}(\theta) = \sum_{i=1}^n \ell_i(\theta) w_i^{\flat} = \sum_{i=1}^n \left(Y_i \Psi_i^T \theta - g(\Psi_i^T \theta)\right) w_i^{\flat} = \theta^T \Psi \mathcal{W}^{\flat}\mathbf{Y} - A^{\flat}(\theta)
+\end{align}
+with 
+\begin{align}
+A^{\flat}(\theta) \stackrel{\text{def}}{=} \sum_{i=1}^n g(\Psi_i^T \theta) w_i^{\flat}.
+\end{align}
+Note that 
+\begin{align}
+\mathbb{E}^{\flat} A^{\flat} (\theta) = A.
+\end{align}
+We define the counterpart of zeta function in bootstrap world as follows 
+\begin{align}
+\zeta^{\flat}(\theta) = \nabla L^{\flat}(\theta) - \mathbb{E}^{\flat} \nabla L^{\flat}(\theta)
+\end{align}
+Simple algebra and the fact that $\nabla \mathbb{E}^{\flat}L^{\flat}(\tilde{\theta}) = 0$ brings us to the following expression 
+\begin{align}
+\zeta^{\flat}({\theta}^*) = \sum_{i=1}^n \left[Y_i \Psi_i^T - \Psi_i g'(\Psi_i^T {\theta}^*)\right] \e_i^{\flat} = Y^T \Psi \mathcal{E}^{\flat} - \nabla A({\theta}^*) \mathcal{E}^{\flat},
+\end{align}
+where $\e_i^{\flat} = w_i^{\flat} - 1$.
+The Fisher expansion in bootstrap world has the following form: 
+\begin{align}
+\| D(\tilde{\theta}^{\flat} - \tilde{\theta}) - \xi^{\flat} \| \le \diamondsuit^{\flat}(x) 
+\end{align}
+One can see that the standartized score in real world is 
+\begin{align}
+\xi = D^{-1} \Psi \mathbf{\e} 
+\end{align}
+and the standartized score in bootstrap world is 
+\begin{align}
+\xi^{\flat} = {D}^{-1} \left[\mathbf{Y}^T \Psi - \nabla A({\theta}^*)\right] \mathcal{E}^{\flat} | \mathbf{Y} \sim \mathcal{N}(0, V^2),
+\end{align}
+where $V^2 \stackrel{\text{def}}{=} \mathbb{V}ar(\xi^{\flat})$. The latter is based on the fact that the random components with respect to the measure $\mathbb{P}^{\flat}$ are standard normal random variables $\e_i^{\flat} \, | \, \mathbf{Y} \sim \mathcal{N}(0, 1)$ by construction.
+\par In order to proceed with bootstrap validity we need to compare these two standartized scores. 
+
+\subsection{Gaussian approximation (GAR) for weighted sum} 
+So far we have used the Fisher expansion in order to approximate the standardized score $D(\tilde{\theta} - \theta^*)$ with normalized score $\xi$ with respect to the measure $\mathbb{P}$. Analogically we have approximated $D(\tilde{\theta}^{\flat} - \tilde{\theta})$ with $\xi^{\flat}$, the counterparts of standardized  and normalized scores with respect to $\mathbb{P}^{\flat}$.
+\par $\xi^{\flat}$ is indeed Gaussian by construction, hence there is no need to approximate it, while the vector $\xi = D^{-1}\Psi \e$ is the linear combination of the original errors $\e_i \stackrel{\text{def}}{=} Y_i - \mathbb{E}Y_i$. So, denote the Gaussian approximation of $\xi$ as $\overline{\xi}$, which is a centered normal random variable with variance $\mathbb{V}ar(\xi)$, i.e.
+\begin{align}
+\overline{\xi} \sim \mathcal{N}(0, \mathbb{V}ar(\xi)),
+\end{align}
+where $\mathbb{V}ar(\xi) = D^{-1}\Psi \mathbb{V}ar(\e) \Psi^T D^{-1}$.
+\par To pose the problem in more understandable way we recall that our errors $\e_i$s are independent with zero mean and variance of $v_i^2$, i.e. 
+\begin{align}
+\mathbb{E} \e_i = 0 \qquad \mathbb{V}ar \e_i = v_i^2.
+\end{align}
+We introduce the independent and normal random variables $\tilde{\e}_i$ with $\mathbb{V}ar \tilde{\e}_i = v_i^2$ and define $\overline{\xi}$ as follows 
+\begin{align}
+\overline{\xi} \stackrel{\text{def}}{=} D^{-1}\Psi \tilde{\e},
+\end{align}  
+where $\tilde{\e} \sim \mathcal{N}\big(0, \text{diag}(v_1^2, \dots, v_n^2)\big)$. It is easy to check that the covariance matrices of $\xi$ and $\overline{\xi}$ coincide.
+\par Define also $S_k$ as follows
+\begin{align}
+S_k \stackrel{\text{def}}{=} \sum_{i=1}^{k-1} c_k \e_k + \sum_{i=k + 1}^{n} c_k \tilde{\e}_k \quad \text{ for } k = 2, \dots, n,
+\end{align}
+where $c_k$ are the coefficients of error terms, 
+and 
+\begin{align}
+S = \sum_{i=1}^n c_k\e_i, \qquad \tilde{S} = \sum_{i=1}^n c_k \tilde{\e}_i.
+\end{align}
+Let $f$ is a smooth function with 
+\begin{align}\label{f}
+\left| f(x + d) - f(x) - d^T f'(x) - \frac{d^T f''(x) d}{2}\right| \le C_f \| d \|_{\infty}^3.
+\end{align}
+\par Then, using the telescopic principle one can see that 
+\begin{align}\label{telescope}
+f(S) - f(\tilde{S}) = \sum_{k=1}^n \big(f(S_k + c_k\e_k) - f(S_k + c_k\tilde{\e}_k) \big),
+\end{align}
+since $S_k + \e_k = S_{k+1} + \tilde{\e}_{k+1}$ for $k = 1, \dots, n - 1$.
+\par Now, using Taylor expansion for every $k$ and condition \eqref{f} we get $\forall k$
+\begin{align*}
+\left| f(S_k + c_k\e_k) - f(S_k + c_k\tilde{\e}_k) - c_i^T f'(S_k) (\e_k - \tilde{\e}_k) - c_i^T f''(S_k)c_i \frac{\e_k^2 - \tilde{\e}_k^2}{2}\right| \le C_f \| c_i \|_{\infty}^3 \cdot (|\e_k|^3 + |\tilde{\e}_k^3|).
+\end{align*}
+Taking the expected value inside the module and using the fact that $\mathbb{E} (\e_i - \tilde{e}_i) = \mathbb{E} (\e_i^2 - \tilde{e}_i^2) = 0$ along with independence of $S_k$ and $\e_k $ and $\tilde{\e}_k$ one gets 
+\begin{align*}
+\big| \mathbb{E}f(S) - \mathbb{E}f(\tilde{S}) \big| = \left| \mathbb{E} \left[\sum_{k=1}^n \big(f(S_k + \e_k) - f(S_k + \tilde{\e}_k) \big) \right]\right| \le C_f \| c_i \|_{\infty}^3 \cdot \mathbb{E} \sum_{k=1}^n \left(\big|\e_k\big|^3 + \big|\tilde{\e}_k\big|^3\right).
+\end{align*}
+Let 
+\begin{align}\label{delta}
+\delta_n = \| c_i \|_{\infty}^3 \mathbb{E} \sum_{k=1}^n \left(\big|\e_k\big|^3 + \big|\tilde{\e}_k\big|^3\right) = \| c_i \|_{\infty}^3 \mathbb{E} \sum_{k=1}^n \left(\big|\e_k\big|^3 + 2\sqrt{\frac{2}{\pi}}v_i^3\right),
+\end{align}
+which yields 
+\begin{align}\label{22}
+\big| \mathbb{E}f(S) - \mathbb{E}f(\tilde{S}) \big| \le C_f \cdot \delta_n.
+\end{align}
+\begin{re}
+The inequality \eqref{22} can be easily extended in this form 
+\begin{align}
+\big| \mathbb{E}f(S - z) - \mathbb{E}f(\tilde{S} - z) \big| \le C_f \cdot \delta_n.
+\end{align}
+\end{re}
+The basic idea for getting the distance between two distributions from here is to approximate the discontinuous function $f(x) = \mathbb{I}(x \ge q)$ by a smooth function $f(x)$ and then to apply the Lindeberg telescopic sum device.
+\par {\color{blue}{if we construct such function, then the the theorem will look like something like this:}}
+\begin{thm}
+Let $\e_i$ be independent zero mean with finite third moments and $\mathbb{V}ar \e_i = v_i^2$ for $i = 1, \dots, n$. Define 
+\begin{align}
+S = \sum_{i=1}^n c_i \e_i \quad \text{ and } \quad \tilde{S} = \sum_{i=1}^n c_i \tilde{\e}_i,
+\end{align}
+where $\tilde{\e}_i \sim \mathcal{N}(0, v_i^2)$. Then, for any $\triangle > 0$ it holds 
+\begin{align}
+\Big|\mathbb{P}(S \ge q) - \mathbb{P}(\tilde{S} \ge q + \triangle) \Big| \le \diamondsuit(\triangle, \delta_n,x, p),
+\end{align}
+where $\delta_n$ is given by \eqref{delta}, $x$ is our tolerance level and $p$ is the dimension of $c_i$.
+\end{thm}
+
+
+\subsection{Gaussian comparison \& Pinsker's inequality} 
+As we have already showed that $\xi$ can be replaced by $\overline{\xi}$, we now are ready to compare two Gaussian random vectors, namely 
+\begin{align}
+\overline{\xi} \sim \mathcal{N}(0, \mathbb{V}ar(\xi)), \quad \text{ and } \quad \xi^{\flat} \sim \mathcal{N}(0, V^2).
+\end{align}
+It is sufficient to compare the covariance matrices of these two distributions. The main idea here relies under the Pinkser's inequality. 
+\par Consider two random Gaussian vectors with zero mean, namely $\xi \sim \mathcal{N}(0, \Sigma)$ and $\xi^{\flat} \sim \mathcal{N}(0, \Sigma^{\flat})$. Let's discuss the in the most general setting. Let $T$ be a function from $\mathbb{R}^p$ to $\mathbb{R}^q$ and $\mathbf{X} = T(\xi)$ and $\mathbf{Y} = T(\xi^{\flat})$. We are interested in bounding the distance between distributions of $\mathbf{X}$ and $\mathbf{Y}$. 
+\par The next theorem bounds from above the Kullback-Leibler divergence between two normal distributions. 
+\begin{thm}
+Let $\mathbb{P} = \mathcal{N}(\mu, \Sigma)$ and $\mathbb{P}^{\flat} = \mathcal{N}(\mu^{\flat}, \Sigma^{\flat})$ for some non-degenerate symmetric and positive definite matrices. Assume that 
+\begin{align}\label{29}
+\| \Sigma^{-1/2} \Sigma^{\flat} \Sigma^{-1/2} - I_p \|_{\text{op}} \le \frac 1 2
+\end{align}
+and 
+\begin{align}\label{30}
+\text{tr}\left(\Sigma^{-1/2} \Sigma^{\flat} \Sigma^{-1/2} - I_p\right)^2 \le \triangle^2,
+\end{align}
+then 
+\begin{align}
+\mathcal{D}(\mathbb{P} \, \| \, \mathbb{P}^{\flat}) = - \mathbb{E} \log \frac{d \mathbb{P}^{\flat}}{d\mathbb{P}} \le \frac{\triangle^2}{2} + \frac 1 2 (\mu - \mu^{\flat})^T \Sigma^{-1} \Sigma^{\flat} \Sigma^{-1}(\mu - \mu^{\flat}).
+\end{align}
+Moreover, for any measurable set $A \subset \mathbb{R}^p$ it holds 
+\begin{align}
+\big | \mathbb{P}(A) - \mathbb{P}^{\flat}(A) \big| \le \sqrt{\frac{\mathcal{D}(\mathbb{P} \, \| \, \mathbb{P}^{\flat}) }{2}}.
+\end{align}
+\end{thm}
+\begin{s}
+By the following change of variable $u = \Sigma^{-1/2}(x - \mu)$ one can achieve the standard normal Gaussian vector $\mathbb{P}$, while for $\mathbb{P}^{\flat}$ we have the following expression 
+\begin{align}
+\mathbb{P}^{\flat} = \mathcal{N}\Big(\Sigma^{-1/2}(\mu^{\flat} - \mu), \Sigma^{-1/2}\Sigma^{\flat}\Sigma^{-1/2}\Big) = \mathcal{N}(b, B),
+\end{align}
+where
+\begin{align}
+b \stackrel{\text{def}}{=} \Sigma^{-1/2}(\mu^{\flat} - \mu),  \qquad B \stackrel{\text{def}}{=} \Sigma^{-1/2}\Sigma^{\flat}\Sigma^{-1/2}
+\end{align}
+Compute 
+\begin{align}\label{kl}
+2 \log \frac{d \mathbb{P}^{\flat}}{d \mathbb{P}}(\gamma) = \log \det (B) - (\gamma - b)^T B (\gamma - b) + \| \gamma \|^2,
+\end{align}
+where $\gamma$ is standard normal random vector. Then taking the expectation of \eqref{kl} one can easily get 
+\begin{align}\label{kl2}
+\mathcal{D}(\mathbb{P} \, \| \, \mathbb{P}^{\flat}) = - \mathbb{E} \log \frac{d \mathbb{P}^{\flat}}{d\mathbb{P}} = -\frac 1 2 \left[ \log \det (B) - \text{tr}(B - I_p)  - b^T B b\right].
+\end{align}
+Let $\lambda_j$ is the $j$th eigenvalue of matrix $B - I_p$ then \eqref{kl2} could be rewritten in this way 
+\begin{align}
+\mathcal{D}(\mathbb{P} \, \| \, \mathbb{P}^{\flat}) = \frac 1 2 \left[\sum_{j=1}^p \Big\{ -\log(\lambda_j + 1) + \lambda_j \Big \} + b^TBb \right].
+\end{align}
+Then, we note that for $x \in (0, 1/2)$ it holds 
+\begin{align}
+f(x) = x^2 - x + \log (x +1) \ge 0, \quad \forall \, \, x \in \left(0, \frac 1 2 \right).
+\end{align}
+The simple algebra verifies this. Hence,
+\begin{align}
+\frac 1 2 \left[\sum_{j=1}^p \Big\{ -\log(\lambda_j + 1) + \lambda_j \Big \} + b^TBb \right] \le \frac 1 2 \left[\sum_{j = 1}^p \lambda_j^2 + b^T B b\right] \le \frac 1 2 b^T B b + \frac{1}{2} \triangle^2,
+\end{align}
+where the latter is obtained using the condition \eqref{30}. Then substituting back to the original variables we get 
+\begin{align}
+\mathcal{D}(\mathbb{P} \, \| \, \mathbb{P}^{\flat}) = - \mathbb{E} \log \frac{d \mathbb{P}^{\flat}}{d\mathbb{P}} \le \frac{\triangle^2}{2} + \frac 1 2 (\mu - \mu^{\flat})^T \Sigma^{-1} \Sigma^{\flat} \Sigma^{-1}(\mu - \mu^{\flat})
+\end{align}
+as required. 
+\par Applying Pinsker's inequality we obtain 
+\begin{align}
+\sup_{A} \big| \mathbb{P}(A) - \mathbb{P}^{\flat}(A) \big| \le \sqrt{\frac {\mathcal{D}(\mathbb{P} \, \| \, \mathbb{P}^{\flat})}{2}} \le \frac{1}{2} \sqrt{\triangle^2 + (\mu - \mu^{\flat})^T \Sigma^{-1} \Sigma^{\flat} \Sigma^{-1}(\mu - \mu^{\flat})}
+\end{align}
+\end{s}
+\begin{re}
+Note that $1/2$ from the left hand side of \eqref{29} can be replaced by some constant $\e$, which will lead to the similar result parametrized on $\e$.
+\end{re}
+\begin{re}
+Note that for the case of $\mu = \mu^{\flat} = 0$ and $T(x) = x$ mapping one obtains
+\begin{align}
+\sup_{A \in \mathcal{B}(\mathbb{R}^p)} \big| \mathbb{P}(\xi \in A) - \mathbb{P}^{\flat}(\xi^{\flat} \in A) \big| \le \sqrt{\frac {\mathcal{D}(\mathbb{P} \, \| \, \mathbb{P}^{\flat})}{2}} \le \frac{\triangle}{2},
+\end{align}
+where $\mathcal{B}(\mathbb{R}^p)$ is a set of all Borel sets in $\mathbb{R}^p$.
+\end{re}
+From the above theorem it follows that in order to show that the distributions (i.e. covariance matrices) are close to each other, it is sufficient to show that the conditions of the theorem fulfil. 
+
+\section{Conditions}
+Describe the conditions that are needed in order to apply the above described steps.
+
+\newpage
+\section{Main}
+{\color{blue}{bad structure}}
+\\
+We will discuss the case when the error distribution comes from exponential family with canonical parameter (EFc). 
+\par We define the oracle of described model as $v^* = \arg\max_{v} \mathbb{E} L(v, \mathbf{Y})$, while the data-driven estimator for the oracle $v^*$ is defined as $\tilde{v} = \arg\max L (v | Y)$. Note that the source of randomness in $L(v, \mathbf{Y})$ is behind $\mathbf{Y}$, the distribution of which, in general, is unknown. 
+\par We introduce the bootstrap counterpart of (log) likelihood function $L(\cdot)$ as follows 
+\begin{align}\label{bootstrap}
+L^{\flat}(v) = \sum_{i=1}^n \ell_i(v | \mathbf{Y}) \cdot w_i^{\flat}, 
+\end{align}
+where $w_i^{\flat}$ are known as bootstrap weights with $\mathbb{E} w_i^{\flat} = 1$,  $\mathbb{V}\text{ar} \, w_i^{\flat} = 1$ and $\mathbb{E} \exp(w_i^{\flat}) < \infty$ for all $i \in [1, n]$. \par One can see that these two log-likelihood function are very similar to each other, but indeed live in different probability spaces, since the log-likelihood in \eqref{real} is the function of random data $\mathbf{Y}$, while the log-likelihood in \eqref{bootstrap} is the bootstrap counterpart of log-likelihood and considered to have a different source of randomness, namely, the randomness comes from the {\it{bootstrap multipliers}}; $\mathbf{Y}$ is fixed. The link between these two probability spaces is given with this simple observation 
+\begin{align}
+\mathbb{E}^{\flat} L^{\flat}(v) \equiv L(v)
+\end{align}
+\par Suppose $\mathbf{Y} = (Y_1, \dots, Y_n)$ is iid data coming from some unknown distribution $\mathcal{P}$. In general, $Y_i \sim \mathcal{P}_{f(x)}$, where $f(x)$ is the true function that we are trying to approximate. Consider $X_i \in \mathbb{R}^d$ and $Y_i \sim P_i \in (\mathcal{P}_{\v{v}})$, which means that $\exists v_i : P_i = P_{v_i}$. Function $\v{v}(x)$ can be represented in the following way
+\begin{eqnarray*}
+v(x) = \sum_{j=1}^{\infty} {\v{\theta}}_j \psi_j(x).
+\end{eqnarray*}
+Then, our linear parametric assumption is
+\begin{eqnarray}
+v(x) = \sum_{j=1}^{p+q} {\v{\theta}}_j \psi_j(x) = \sum_{j=1}^p {\v{\theta}}_j \psi_{j}(x) + \sum_{j= p+1}^{p+q} {\v{\theta}}_j \psi_{j}(x) \text{ for given basis $\psi_j(\cdot)$}.
+\end{eqnarray}
+Denote ${\v{\eta}}_{i} = {\v{\theta}}_{p + i}$ and column-vector ${\v{\eta}} = ({\v{\eta}}_1, \dots, {\v{\eta}}_{q})^T \in \mathbb{R}^q$.
+We will mostly discuss the case of finite $p$ and $q$.
+
+\par The log-likelihood function is defined as follows 
+\begin{align}\label{real}
+L(v; \mathbf{Y}) = \log \dfrac {d \mathbb{P}_{v}}{d\mu_0^n}(\mathbf{Y}) = \sum_{i=1}^n v_i Y_i - g(v_i),
+\end{align}
+where $v$ is the parameter of interest. Define 
+\begin{align}
+\tilde{v} = \arg\max_{v \in \Theta} L(v, \mathbf{Y}) \qquad v^* = \arg\max_{v \in \Theta} \mathbb{E} L(v, \mathbf{Y}) 
+\end{align}
+to be maximum likelihood estimator and oracle, respectively. 
+\end{document}
