@@ -1,0 +1,58 @@
+\section{Basic Probability}
+This lecture is an overview of basic probability concepts, notations that we will be using along the course. 
+\subsection{Probability Spaces}
+A triple $(\Omega, \mathcal{F}, \mathbb{P})$ is called a probability space, where $\Omega$ is the set of outcomes, $\mathcal{F}$ is a set of all possible events and $\mathbb{P}$ is function from $\mathcal{F}$ to $[0, 1]$ that assigns probabilities to events, precisely $\mathbb{P} : \mathcal{F} \to [0, 1]$. We restrict ourselves with some assumptions on $\Omega, \mathcal{F}$ and $\mathbb{P}$: $\mathcal{F}$ is a $\sigma$-algebra of set $\Omega$ and $\mathbb{P}$ is a {\it{probability measure}}. 
+\par We define a measure $\mu$ as follows, it is a function $\mu : \mathcal{F} \to \mathbb{R}$ with the following properties: 
+\begin{itemize}
+    \item $\mu(A) \ge \mu(\emptyset)$ for all $A \in \mathcal{F}$
+    \item if $A_i \in \mathcal{F}$ is a countable (finite or countably infinite) sequence of disjoint sets, then 
+    \begin{align}
+        \mu(\cup A_i) = \sum_i \mu(A_i)
+    \end{align}
+\end{itemize}
+A measure becomes {\it{probability measure}} if $\mu(\Omega) = 1$. The following theorem is stated without proof and contains the basic properties of measure $\mu$ defined on $(\Omega, \mathcal{F})$.
+\begin{thm}
+Let $\mu$ be a measure on $(\Omega, \mathcal{F})$ then 
+\begin{enumerate}
+    \item \textbf{monotonicity.} If $A \subset B$ then $\mu(A) \le \mu(B)$. 
+    \item \textbf{sub-additivity.} If $A \subset \cup_{m=1}^{\infty} A_m$ then $\mu(A) \le \sum_{m=1}^{\infty} \mu(A_m)$.
+    \item \textbf{continuity from below.} If $A_i \uparrow A$, i.e. $A_1 \subset A_2 \subset \dots, \cup A_i = A$ then $\mu(A_i) \uparrow \mu(A)$.
+    \item \textbf{continuity from above.} If $A_i \downarrow A$, i.e. $A_1 \supset A_2 \supset \dots, \cap A_i = A$ and $\mu(A_1) < \infty$ then $\mu(A_i) \downarrow \mu(A)$.
+\end{enumerate}
+\end{thm}
+\par The probability spaces can be either discrete or continuous. If the set of outcomes $\Omega$ is countable, i.e. either finite or countably infinite, then the probability space $(\Omega, \mathcal{F}, \mathbb{P})$ is discrete, otherwise it is continuous. 
+\par The natural example of discrete probability space is $\Omega = \{ 0, 1 \}$. More unintuitive one could be $\Omega = \mathbb{N}$ (set of natural numbers). The set of natural numbers is indeed infinite, but it is countable, hence it is still discrete. 
+\par The probability measure on $\Omega = \{0, 1\}$ is, in general, $\mu(\{1\}) = p$ and $\mu(\{0\}) = q = 1- p$, where $p \in [0, 1]$. It is straightforward to check that the given measure is indeed a probability measure. 
+\begin{rmrk}
+It is very natural to think of the mixture of above described two spaces, i.e. the space is somewhere continuous and somewhere discrete.
+\end{rmrk}
+\subsection{Random Variables} 
+Probability spaces become more interesting when we define random variables on them. A random variable $X$ on $\Omega$ is a measurable function $X : \Omega \to T$, where $T$ is some set of values that random variable can possibly take. $\mathcal{F}$-measurable or just measurable means that for every Borel set $B \subset T$ it holds $X^{-1}(B) = \{ \omega: X(\omega) \in B\} \in \mathcal{F}$. Another simple, but useful, example random variable is {\it{indicator function}} of a set $A \in \mathcal{F}$:
+\begin{align}
+1_A(\omega) = \begin{cases} 1, \quad \omega \in A \\ 0, \quad \omega \notin A \end{cases}
+\end{align}
+Any random variable $X$ induces a probability measure on $\mathbb{R}$ known as distribution of random variable $X$, i.e. $\mu(A) = \mathbb{P}(X \in A)$ for Borel sets $A$. The distribution of random variable $X$ is usually described by giving its {\it{distribution function}}, $F(x) = \mathbb{P}(X \le x)$. 
+\begin{thm}
+Any distribution function $F(x)$ has the following properties:
+\begin{enumerate}
+    \item $F$ is non-decreasing
+    \item $\lim_{x \to +\infty} F(x) = 1$ and $\lim_{x \to -\infty} F(x) = 0$. 
+    \item $F$ is right continuous, we denote it as $\lim_{y \downarrow x} F(y) = F(x)$. 
+    \item Define $F(x-) = \lim_{y \uparrow x}F(y)$, then $F(x-) = \mathbb{P}(X < x)$.
+    \item $\mathbb{P}(X = x) = \mathbb{P}(X \le x) - \mathbb{P}(X < x) = F(x) - F(x-)$.
+\end{enumerate}
+\end{thm}
+\begin{s}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+\end{s}
+\par The following exercise is known as St Petersburg paradox. 
+\begin{exer}
+A fair coin is tossed repeatedly. Let $T$ be the number of tosses until the first head. You are offered the following prospect, which you may accept on payment of a fee. If $T = k$, say, then you will receive $2^k$ roubles. What would be a 'fair' fee to ask of you? \end{exer}
+\subsection{Independence of random variables}
+\subsection{Convergence of random variables} 
+There are mainly 4 types of convergence: in probability, almost surely, weak convergence (in distribution) and in mean. 
+\subsection{Law of Large Numbers}
+\subsection{Central Limit Theorem}
+\subsection{Distributions}
