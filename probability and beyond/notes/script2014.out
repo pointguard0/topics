@@ -1,0 +1,273 @@
+\BOOKMARK [-1][-]{part.1}{Part I Model selection for linear methods}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Quasi maximum likelihood estimation in linear models}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Linear Modeling}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.1}{Estimation under homogeneous noise assumption}{section.1.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.2}{Linear basis transformation}{section.1.1}% 5
+\BOOKMARK [2][-]{subsection.1.1.3}{Orthogonal and orthonormal design}{section.1.1}% 6
+\BOOKMARK [2][-]{subsection.1.1.4}{Spectral representation}{section.1.1}% 7
+\BOOKMARK [1][-]{section.1.2}{Properties of the response estimate \040bold0mu mumu ffprogram@epstopdfffff"0365bold0mu mumu ffprogram@epstopdfffff }{chapter.1}% 8
+\BOOKMARK [2][-]{subsection.1.2.1}{Decomposition into a deterministic and a stochastic component}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.2}{Properties of the operator \040}{section.1.2}% 10
+\BOOKMARK [2][-]{subsection.1.2.3}{Quadratic loss and risk of the response estimation}{section.1.2}% 11
+\BOOKMARK [2][-]{subsection.1.2.4}{Misspecified ``colored noise''}{section.1.2}% 12
+\BOOKMARK [1][-]{section.1.3}{Properties of the MLE \040bold0mu mumu program@epstopdf"0365bold0mu mumu program@epstopdf }{chapter.1}% 13
+\BOOKMARK [2][-]{subsection.1.3.1}{Properties of the stochastic component}{section.1.3}% 14
+\BOOKMARK [2][-]{subsection.1.3.2}{Properties of the deterministic component}{section.1.3}% 15
+\BOOKMARK [2][-]{subsection.1.3.3}{Risk of estimation. R-efficiency}{section.1.3}% 16
+\BOOKMARK [2][-]{subsection.1.3.4}{The case of a misspecified noise}{section.1.3}% 17
+\BOOKMARK [1][-]{section.1.4}{Linear models and quadratic log-likelihood}{chapter.1}% 18
+\BOOKMARK [2][-]{subsection.1.4.1}{Inference based on the maximum likelihood}{section.1.4}% 19
+\BOOKMARK [2][-]{subsection.1.4.2}{A misspecified LPA}{section.1.4}% 20
+\BOOKMARK [2][-]{subsection.1.4.3}{A misspecified noise structure}{section.1.4}% 21
+\BOOKMARK [0][-]{chapter.2}{Linear regression with random design}{part.1}% 22
+\BOOKMARK [1][-]{section.2.1}{Random design linear regression}{chapter.2}% 23
+\BOOKMARK [1][-]{section.2.2}{Design matrix and design distribution}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.1}{Design with independent measurements}{section.2.2}% 25
+\BOOKMARK [2][-]{subsection.2.2.2}{Aggregated random design}{section.2.2}% 26
+\BOOKMARK [1][-]{section.2.3}{Fisher and Wilks expansions for the MLE under random design}{chapter.2}% 27
+\BOOKMARK [1][-]{section.2.4}{A deviation bound for \040bold0mu mumu program@epstopdf}{chapter.2}% 28
+\BOOKMARK [1][-]{section.2.5}{Misspecified linear modeling assumption}{chapter.2}% 29
+\BOOKMARK [1][-]{section.2.6}{Application to instrumental regression}{chapter.2}% 30
+\BOOKMARK [0][-]{chapter.3}{Linear smoothers}{part.1}% 31
+\BOOKMARK [1][-]{section.3.1}{Regularization and ridge regression}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.2}{Penalized likelihood. Bias and variance}{chapter.3}% 33
+\BOOKMARK [1][-]{section.3.3}{Inference for the penalized MLE}{chapter.3}% 34
+\BOOKMARK [1][-]{section.3.4}{Projection and shrinkage estimates}{chapter.3}% 35
+\BOOKMARK [1][-]{section.3.5}{Smoothness constraints and roughness penalty approach}{chapter.3}% 36
+\BOOKMARK [1][-]{section.3.6}{Shrinkage in a linear inverse problem}{chapter.3}% 37
+\BOOKMARK [1][-]{section.3.7}{Spectral cut-off and spectral penalization. Diagonal estimates}{chapter.3}% 38
+\BOOKMARK [1][-]{section.3.8}{Roughness penalty and random design}{chapter.3}% 39
+\BOOKMARK [0][-]{chapter.4}{Sieve model selection in linear models}{part.1}% 40
+\BOOKMARK [1][-]{section.4.1}{Projection estimation. Loss and risk}{chapter.4}% 41
+\BOOKMARK [2][-]{subsection.4.1.1}{A linear model}{section.4.1}% 42
+\BOOKMARK [2][-]{subsection.4.1.2}{Linear decomposition of the estimator \040bold0mu mumu program@epstopdf"0365bold0mu mumu program@epstopdf \040and quadratic risk}{section.4.1}% 43
+\BOOKMARK [2][-]{subsection.4.1.3}{The case of Inhomogeneous errors}{section.4.1}% 44
+\BOOKMARK [2][-]{subsection.4.1.4}{Prediction error \040bold0mu mumu ffprogram@epstopdfffff"0365bold0mu mumu ffprogram@epstopdfffff - bold0mu mumu ffprogram@epstopdfffff*}{section.4.1}% 45
+\BOOKMARK [2][-]{subsection.4.1.5}{Quadratic loss. Bias-variance decomposition}{section.4.1}% 46
+\BOOKMARK [2][-]{subsection.4.1.6}{Projection estimation and the model choice problem}{section.4.1}% 47
+\BOOKMARK [1][-]{section.4.2}{Unbiased risk estimation}{chapter.4}% 48
+\BOOKMARK [2][-]{subsection.4.2.1}{AIC and pairwise comparison}{section.4.2}% 49
+\BOOKMARK [2][-]{subsection.4.2.2}{Pairwise analysis}{section.4.2}% 50
+\BOOKMARK [2][-]{subsection.4.2.3}{Uniform bounds and the zone of insensitivity}{section.4.2}% 51
+\BOOKMARK [2][-]{subsection.4.2.4}{A bound on the excess}{section.4.2}% 52
+\BOOKMARK [1][-]{section.4.3}{The approach based on multiple testing. ``Smallest accepted'' rule}{chapter.4}% 53
+\BOOKMARK [2][-]{subsection.4.3.1}{A LR test}{section.4.3}% 54
+\BOOKMARK [2][-]{subsection.4.3.2}{Multiplicity correction}{section.4.3}% 55
+\BOOKMARK [2][-]{subsection.4.3.3}{Definition of the oracle and propagation property}{section.4.3}% 56
+\BOOKMARK [2][-]{subsection.4.3.4}{A bound on the loss}{section.4.3}% 57
+\BOOKMARK [2][-]{subsection.4.3.5}{Role of \040}{section.4.3}% 58
+\BOOKMARK [0][-]{chapter.5}{Ordered model selection for linear smoothers}{part.1}% 59
+\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 60
+\BOOKMARK [1][-]{section.5.2}{SmA procedure. Known noise}{chapter.5}% 61
+\BOOKMARK [2][-]{subsection.5.2.1}{Model and problem}{section.5.2}% 62
+\BOOKMARK [2][-]{subsection.5.2.2}{Smallest accepted \(SmA\) method in ordered model selection}{section.5.2}% 63
+\BOOKMARK [2][-]{subsection.5.2.3}{A ``good'' model}{section.5.2}% 64
+\BOOKMARK [2][-]{subsection.5.2.4}{Tail function, multiplicity correction, FWER, and critical values \040zm,m }{section.5.2}% 65
+\BOOKMARK [2][-]{subsection.5.2.5}{SmA procedure and propagation property for known noise}{section.5.2}% 66
+\BOOKMARK [1][-]{section.5.3}{Bootstrap tuning}{chapter.5}% 67
+\BOOKMARK [2][-]{subsection.5.3.1}{Presmoothing and wild boostrap}{section.5.3}% 68
+\BOOKMARK [1][-]{section.5.4}{Theoretical properties}{chapter.5}% 69
+\BOOKMARK [2][-]{subsection.5.4.1}{Known noise}{section.5.4}% 70
+\BOOKMARK [2][-]{subsection.5.4.2}{Power loss function}{section.5.4}% 71
+\BOOKMARK [2][-]{subsection.5.4.3}{Analysis of the payment for adaptation \040zm* }{section.5.4}% 72
+\BOOKMARK [2][-]{subsection.5.4.4}{Application to projection estimation}{section.5.4}% 73
+\BOOKMARK [2][-]{subsection.5.4.5}{Linear functional estimation}{section.5.4}% 74
+\BOOKMARK [2][-]{subsection.5.4.6}{Validity of the bootstrap procedure. Conditions}{section.5.4}% 75
+\BOOKMARK [2][-]{subsection.5.4.7}{Bootstrap validation. Range of applicability}{section.5.4}% 76
+\BOOKMARK [1][-]{section.5.5}{Bootstrap validity and critical dimension}{chapter.5}% 77
+\BOOKMARK [1][-]{section.5.6}{Simulations}{chapter.5}% 78
+\BOOKMARK [1][-]{section.5.7}{Proofs}{chapter.5}% 79
+\BOOKMARK [2][-]{subsection.5.7.1}{Proof of Theorems 5.4.1 and 5.4.2}{section.5.7}% 80
+\BOOKMARK [2][-]{subsection.5.7.2}{Proof of Theorem 5.4.4}{section.5.7}% 81
+\BOOKMARK [2][-]{subsection.5.7.3}{Proof of Theorem 5.4.3}{section.5.7}% 82
+\BOOKMARK [2][-]{subsection.5.7.4}{Proof of Proposition 5.4.1}{section.5.7}% 83
+\BOOKMARK [2][-]{subsection.5.7.5}{Proof of Theorem 5.4.7}{section.5.7}% 84
+\BOOKMARK [2][-]{subsection.5.7.6}{Proof of Theorem 5.4.8}{section.5.7}% 85
+\BOOKMARK [2][-]{subsection.5.7.7}{Proof of Theorem 5.4.9}{section.5.7}% 86
+\BOOKMARK [1][-]{section.5.8}{Linear non-Gaussian case and GAR}{chapter.5}% 87
+\BOOKMARK [0][-]{chapter.6}{Unordered case. Anisotropic sets and subset selection}{part.1}% 88
+\BOOKMARK [1][-]{section.6.1}{Subset selection procedure}{chapter.6}% 89
+\BOOKMARK [2][-]{subsection.6.1.1}{SmA procedure and multilevel synchronization}{section.6.1}% 90
+\BOOKMARK [2][-]{subsection.6.1.2}{Prediction loss}{section.6.1}% 91
+\BOOKMARK [2][-]{subsection.6.1.3}{Estimation loss}{section.6.1}% 92
+\BOOKMARK [2][-]{subsection.6.1.4}{Linear functional estimation}{section.6.1}% 93
+\BOOKMARK [2][-]{subsection.6.1.5}{Subset selection problem}{section.6.1}% 94
+\BOOKMARK [1][-]{section.6.2}{Anisotropic models}{chapter.6}% 95
+\BOOKMARK [0][-]{chapter.7}{SmA and parameter tuning in high dimensional regression}{part.1}% 96
+\BOOKMARK [1][-]{section.7.1}{SmA subset selection in high dimensional regression}{chapter.7}% 97
+\BOOKMARK [0][-]{chapter.8}{Penalized model selection}{part.1}% 98
+\BOOKMARK [1][-]{section.8.1}{Complexity penalization}{chapter.8}% 99
+\BOOKMARK [2][-]{subsection.8.1.1}{Orthonormal case}{section.8.1}% 100
+\BOOKMARK [2][-]{subsection.8.1.2}{Penalty tuning using propagation condition}{section.8.1}% 101
+\BOOKMARK [2][-]{subsection.8.1.3}{Oracle inequality for \040"0362 -choice}{section.8.1}% 102
+\BOOKMARK [2][-]{subsection.8.1.4}{Bootstrap based tuning of penalty}{section.8.1}% 103
+\BOOKMARK [1][-]{section.8.2}{Sparse penalty}{chapter.8}% 104
+\BOOKMARK [2][-]{subsection.8.2.1}{Basic inequality}{section.8.2}% 105
+\BOOKMARK [2][-]{subsection.8.2.2}{Dual problem and Danzig selector}{section.8.2}% 106
+\BOOKMARK [2][-]{subsection.8.2.3}{Data-driven choice of \040}{section.8.2}% 107
+\BOOKMARK [-1][-]{part.2}{Part II General parametric theory}{}% 108
+\BOOKMARK [0][-]{chapter.9}{Fisher and Wilks expansion}{part.2}% 109
+\BOOKMARK [1][-]{section.9.1}{Main results}{chapter.9}% 110
+\BOOKMARK [1][-]{section.9.2}{Non-Gaussian case: conditions}{chapter.9}% 111
+\BOOKMARK [1][-]{section.9.3}{Properties of the MLE \040bold0mu mumu program@epstopdf"0365bold0mu mumu program@epstopdf }{chapter.9}% 112
+\BOOKMARK [1][-]{section.9.4}{Some auxiliary results and proofs}{chapter.9}% 113
+\BOOKMARK [2][-]{subsection.9.4.1}{Local linear approximation of the gradient of the log-likelihood}{section.9.4}% 114
+\BOOKMARK [2][-]{subsection.9.4.2}{Local quadratic approximation of the log-likelihood}{section.9.4}% 115
+\BOOKMARK [2][-]{subsection.9.4.3}{Proof of Theorem 9.3.1}{section.9.4}% 116
+\BOOKMARK [2][-]{subsection.9.4.4}{Proof of Theorem 9.3.2}{section.9.4}% 117
+\BOOKMARK [2][-]{subsection.9.4.5}{Proof of Theorem 9.3.3}{section.9.4}% 118
+\BOOKMARK [0][-]{chapter.10}{Bernstein \205 von Mises Theorem}{part.2}% 119
+\BOOKMARK [1][-]{section.10.1}{Parametric BvM Theorem}{chapter.10}% 120
+\BOOKMARK [1][-]{section.10.2}{The use of posterior mean and variance for credible sets}{chapter.10}% 121
+\BOOKMARK [1][-]{section.10.3}{Extension to a flat Gaussian prior}{chapter.10}% 122
+\BOOKMARK [1][-]{section.10.4}{Proof of Theorem 10.1.1}{chapter.10}% 123
+\BOOKMARK [2][-]{subsection.10.4.1}{Local Gaussian approximation of the posterior. Upper bound}{section.10.4}% 124
+\BOOKMARK [2][-]{subsection.10.4.2}{Tail posterior probability and contraction}{section.10.4}% 125
+\BOOKMARK [2][-]{subsection.10.4.3}{Local Gaussian approximation of the posterior. Lower bound}{section.10.4}% 126
+\BOOKMARK [2][-]{subsection.10.4.4}{Moments of the posterior}{section.10.4}% 127
+\BOOKMARK [1][-]{section.10.5}{Proof of Theorem 10.3.1}{chapter.10}% 128
+\BOOKMARK [0][-]{chapter.11}{Roughness penalty for dimension reduction}{part.2}% 129
+\BOOKMARK [1][-]{section.11.1}{Fisher and Wilks Theorems under quadratic penalization}{chapter.11}% 130
+\BOOKMARK [1][-]{section.11.2}{Effective dimension}{chapter.11}% 131
+\BOOKMARK [1][-]{section.11.3}{Conditions}{chapter.11}% 132
+\BOOKMARK [1][-]{section.11.4}{Concentration and a large deviation bound}{chapter.11}% 133
+\BOOKMARK [1][-]{section.11.5}{Wilks and Fisher expansions}{chapter.11}% 134
+\BOOKMARK [1][-]{section.11.6}{Quadratic risk bound and modeling bias}{chapter.11}% 135
+\BOOKMARK [1][-]{section.11.7}{Proofs of the Fisher and Wilks expansions}{chapter.11}% 136
+\BOOKMARK [1][-]{section.11.8}{Nonparametric BvM Theorem: Gaussian case}{chapter.11}% 137
+\BOOKMARK [2][-]{subsection.11.8.1}{Finite dimensional projections and maxispaces}{section.11.8}% 138
+\BOOKMARK [2][-]{subsection.11.8.2}{Concentration sets for the posterior}{section.11.8}% 139
+\BOOKMARK [2][-]{subsection.11.8.3}{Frequentist coverage for Bayesian credible sets}{section.11.8}% 140
+\BOOKMARK [2][-]{subsection.11.8.4}{Non-Gaussian errors}{section.11.8}% 141
+\BOOKMARK [1][-]{section.11.9}{Nonparametric BvM Theorem: non-Gaussian case}{chapter.11}% 142
+\BOOKMARK [2][-]{subsection.11.9.1}{A linear stochastic term}{section.11.9}% 143
+\BOOKMARK [2][-]{subsection.11.9.2}{General likelihood}{section.11.9}% 144
+\BOOKMARK [0][-]{chapter.12}{Semiparametric estimation}{part.2}% 145
+\BOOKMARK [1][-]{section.12.1}{Fisher and Wilks results for a parameter subvector}{chapter.12}% 146
+\BOOKMARK [2][-]{subsection.12.1.1}{Fisher expansion and semiparametric concentration}{section.12.1}% 147
+\BOOKMARK [2][-]{subsection.12.1.2}{Semiparametric Wilks expansion}{section.12.1}% 148
+\BOOKMARK [1][-]{section.12.2}{Likelihood ratio test statistic for a composite hypothesis}{chapter.12}% 149
+\BOOKMARK [1][-]{section.12.3}{Semiparametric BvM approximation}{chapter.12}% 150
+\BOOKMARK [1][-]{section.12.4}{Sieve semiparametric inference}{chapter.12}% 151
+\BOOKMARK [1][-]{section.12.5}{Estimation of a nonlinear functional}{chapter.12}% 152
+\BOOKMARK [1][-]{section.12.6}{Bias in semiparametric sieve approximation}{chapter.12}% 153
+\BOOKMARK [2][-]{subsection.12.6.1}{Basis transformation for the nuisance}{section.12.6}% 154
+\BOOKMARK [2][-]{subsection.12.6.2}{Smoothness conditions}{section.12.6}% 155
+\BOOKMARK [0][-]{chapter.13}{Parametric i.i.d. models}{part.2}% 156
+\BOOKMARK [1][-]{section.13.1}{Quasi MLE in an i.i.d. model}{chapter.13}% 157
+\BOOKMARK [1][-]{section.13.2}{Conditions in the i.i.d. case}{chapter.13}% 158
+\BOOKMARK [1][-]{section.13.3}{Results in the non-penalized i.i.d. case}{chapter.13}% 159
+\BOOKMARK [1][-]{section.13.4}{Roughness penalization for an i.i.d. sample}{chapter.13}% 160
+\BOOKMARK [1][-]{section.13.5}{BvM Theorem for the i.i.d. data}{chapter.13}% 161
+\BOOKMARK [0][-]{chapter.14}{Generalized linear models}{part.2}% 162
+\BOOKMARK [1][-]{section.14.1}{Linear models}{chapter.14}% 163
+\BOOKMARK [1][-]{section.14.2}{Generalized linear models \(GLM\)}{chapter.14}% 164
+\BOOKMARK [2][-]{subsection.14.2.1}{A general deviation bound for the MLE \040bold0mu mumu program@epstopdf"0365bold0mu mumu program@epstopdf }{section.14.2}% 165
+\BOOKMARK [2][-]{subsection.14.2.2}{Fisher and Wilks expansions for \040bold0mu mumu program@epstopdf"0365bold0mu mumu program@epstopdf }{section.14.2}% 166
+\BOOKMARK [2][-]{subsection.14.2.3}{Sufficient conditions on design and errors}{section.14.2}% 167
+\BOOKMARK [1][-]{section.14.3}{Nonparametric sieve GLM estimation}{chapter.14}% 168
+\BOOKMARK [1][-]{section.14.4}{Estimation for a penalized GLM}{chapter.14}% 169
+\BOOKMARK [1][-]{section.14.5}{BvM Theorem for a GLM}{chapter.14}% 170
+\BOOKMARK [2][-]{subsection.14.5.1}{A non-informative prior}{section.14.5}% 171
+\BOOKMARK [2][-]{subsection.14.5.2}{Nonparametric BvM with a Gaussian prior}{section.14.5}% 172
+\BOOKMARK [1][-]{section.14.6}{GLM with random design}{chapter.14}% 173
+\BOOKMARK [2][-]{subsection.14.6.1}{Local concentration of \040bold0mu mumu program@epstopdf"0365bold0mu mumu program@epstopdf }{section.14.6}% 174
+\BOOKMARK [2][-]{subsection.14.6.2}{Fisher and Wilks expansions}{section.14.6}% 175
+\BOOKMARK [2][-]{subsection.14.6.3}{Sufficient conditions for the case of random design}{section.14.6}% 176
+\BOOKMARK [2][-]{subsection.14.6.4}{Nonparametric BvM for a Gaussian prior}{section.14.6}% 177
+\BOOKMARK [0][-]{chapter.15}{Estimation of a log-density}{part.2}% 178
+\BOOKMARK [1][-]{section.15.1}{Log-density estimation. Conditions}{chapter.15}% 179
+\BOOKMARK [1][-]{section.15.2}{Sieve nonparametric density estimation}{chapter.15}% 180
+\BOOKMARK [1][-]{section.15.3}{Sieve likelihood ratio test}{chapter.15}% 181
+\BOOKMARK [1][-]{section.15.4}{Error of estimation for the log-density function}{chapter.15}% 182
+\BOOKMARK [2][-]{subsection.15.4.1}{Kullback-Leibler divergence}{section.15.4}% 183
+\BOOKMARK [2][-]{subsection.15.4.2}{Hellinger loss}{section.15.4}% 184
+\BOOKMARK [1][-]{section.15.5}{Penalized smooth density estimation}{chapter.15}% 185
+\BOOKMARK [2][-]{subsection.15.5.1}{Loss in penalized density estimation}{section.15.5}% 186
+\BOOKMARK [1][-]{section.15.6}{Parametric structural log-density modeling}{chapter.15}% 187
+\BOOKMARK [0][-]{chapter.16}{Sieve parametric approach in nonparametric regression}{part.2}% 188
+\BOOKMARK [1][-]{section.16.1}{Parametric and nonparametric regression}{chapter.16}% 189
+\BOOKMARK [1][-]{section.16.2}{Conditions}{chapter.16}% 190
+\BOOKMARK [2][-]{subsection.16.2.1}{Checking the local conditions \040bold0mu mumu \(ED0\)\(ED0\)program@epstopdf\(ED0\)\(ED0\)\(ED0\)\(ED0\) \040and \040bold0mu mumu \(ED2\)\(ED2\)program@epstopdf\(ED2\)\(ED2\)\(ED2\)\(ED2\) }{section.16.2}% 191
+\BOOKMARK [2][-]{subsection.16.2.2}{Checking the local condition \040bold0mu mumu \(L0\)\(L0\)program@epstopdf\(L0\)\(L0\)\(L0\)\(L0\) }{section.16.2}% 192
+\BOOKMARK [1][-]{section.16.3}{Large deviation result and Fisher expansion}{chapter.16}% 193
+\BOOKMARK [1][-]{section.16.4}{Prediction loss and bias-variance decomposition}{chapter.16}% 194
+\BOOKMARK [1][-]{section.16.5}{Sieve nonparametric estimation}{chapter.16}% 195
+\BOOKMARK [1][-]{section.16.6}{Penalized regression}{chapter.16}% 196
+\BOOKMARK [1][-]{section.16.7}{Semiparametric problem}{chapter.16}% 197
+\BOOKMARK [1][-]{section.16.8}{Random design regression}{chapter.16}% 198
+\BOOKMARK [2][-]{subsection.16.8.1}{Checking the condition \040bold0mu mumu \(L0\)\(L0\)program@epstopdf\(L0\)\(L0\)\(L0\)\(L0\) }{section.16.8}% 199
+\BOOKMARK [2][-]{subsection.16.8.2}{Checking the conditions \040bold0mu mumu \(ED0\)\(ED0\)program@epstopdf\(ED0\)\(ED0\)\(ED0\)\(ED0\) \040and \040bold0mu mumu \(ED2\)\(ED2\)program@epstopdf\(ED2\)\(ED2\)\(ED2\)\(ED2\) }{section.16.8}% 200
+\BOOKMARK [0][-]{chapter.17}{Structural regression}{part.2}% 201
+\BOOKMARK [1][-]{section.17.1}{Single-index case}{chapter.17}% 202
+\BOOKMARK [1][-]{section.17.2}{Error-in-variable nonparametric regression}{chapter.17}% 203
+\BOOKMARK [1][-]{section.17.3}{Instrumental regression}{chapter.17}% 204
+\BOOKMARK [0][-]{chapter.18}{Median and quantile regression}{part.2}% 205
+\BOOKMARK [0][-]{chapter.19}{Generalized regression}{part.2}% 206
+\BOOKMARK [-1][-]{part.3}{Part III Structural regression}{}% 207
+\BOOKMARK [0][-]{chapter.20}{Sieve Model Selection}{part.3}% 208
+\BOOKMARK [1][-]{section.20.1}{Sieve SmA procedure}{chapter.20}% 209
+\BOOKMARK [1][-]{section.20.2}{Resampling methods for parameter tuning in generalized regression}{chapter.20}% 210
+\BOOKMARK [2][-]{subsection.20.2.1}{Generalized regression}{section.20.2}% 211
+\BOOKMARK [2][-]{subsection.20.2.2}{Multiplier bootstrap}{section.20.2}% 212
+\BOOKMARK [2][-]{subsection.20.2.3}{Numerical issues}{section.20.2}% 213
+\BOOKMARK [1][-]{section.20.3}{Sieve Generalized Linear regression}{chapter.20}% 214
+\BOOKMARK [2][-]{subsection.20.3.1}{Sieve MLE}{section.20.3}% 215
+\BOOKMARK [2][-]{subsection.20.3.2}{Bootstrap counterpart}{section.20.3}% 216
+\BOOKMARK [2][-]{subsection.20.3.3}{Bootstrap for the SmA procedure}{section.20.3}% 217
+\BOOKMARK [-1][-]{part.4}{Part IV Mathematical tools}{}% 218
+\BOOKMARK [0][-]{appendix.A}{Some results for Gaussian law}{part.4}% 219
+\BOOKMARK [1][-]{section.A.1}{Deviation bounds for a Gaussian vector}{appendix.A}% 220
+\BOOKMARK [1][-]{section.A.2}{Gaussian integrals}{appendix.A}% 221
+\BOOKMARK [0][-]{appendix.B}{Deviation bounds for quadratic forms}{part.4}% 222
+\BOOKMARK [1][-]{section.B.1}{Gaussian quadratic forms}{appendix.B}% 223
+\BOOKMARK [1][-]{section.B.2}{Deviation bounds for non-Gaussian quadratic forms}{appendix.B}% 224
+\BOOKMARK [2][-]{subsection.B.2.1}{Deviation bounds for the norm of a standardized non-Gaussian vector}{section.B.2}% 225
+\BOOKMARK [2][-]{subsection.B.2.2}{A deviation bound for a general non-Gaussian quadratic form }{section.B.2}% 226
+\BOOKMARK [1][-]{section.B.3}{Deviation probability for a normalized martingale}{appendix.B}% 227
+\BOOKMARK [0][-]{appendix.C}{Sums of random matrices}{part.4}% 228
+\BOOKMARK [1][-]{section.C.1}{Matrix Bernstein inequality}{appendix.C}% 229
+\BOOKMARK [1][-]{section.C.2}{Presmoothing and bias effects}{appendix.C}% 230
+\BOOKMARK [1][-]{section.C.3}{Empirical covariance matrix}{appendix.C}% 231
+\BOOKMARK [0][-]{appendix.D}{Gaussian comparison via KL-divergence and Pinsker's inequality}{part.4}% 232
+\BOOKMARK [1][-]{section.D.1}{Pinsker's inequality}{appendix.D}% 233
+\BOOKMARK [1][-]{section.D.2}{Gaussian comparison}{appendix.D}% 234
+\BOOKMARK [0][-]{appendix.E}{Random multiplicity correction}{part.4}% 235
+\BOOKMARK [1][-]{section.E.1}{Gaussian measures with random covariance}{appendix.E}% 236
+\BOOKMARK [1][-]{section.E.2}{Max-case}{appendix.E}% 237
+\BOOKMARK [0][-]{appendix.F}{High-dimensional inference for a Gaussian law}{part.4}% 238
+\BOOKMARK [1][-]{section.F.1}{Stein identity, Slepian bridge, and Gaussian comparison}{appendix.F}% 239
+\BOOKMARK [1][-]{section.F.2}{Comparing of the maximum of Gaussians}{appendix.F}% 240
+\BOOKMARK [1][-]{section.F.3}{Anti-concentration for Gaussian maxima}{appendix.F}% 241
+\BOOKMARK [1][-]{section.F.4}{Gaussian comparison for the squared norm}{appendix.F}% 242
+\BOOKMARK [1][-]{section.F.5}{Approximation of the indicator function}{appendix.F}% 243
+\BOOKMARK [0][-]{appendix.G}{Gaussian approximation of a vector sum}{part.4}% 244
+\BOOKMARK [1][-]{section.G.1}{A univariate case with Lindeberg telescopic sums}{appendix.G}% 245
+\BOOKMARK [1][-]{section.G.2}{Berry-Esseen Theorem for a univariate sum}{appendix.G}% 246
+\BOOKMARK [2][-]{subsection.G.2.1}{Characteristic functions for a univariate sum}{section.G.2}% 247
+\BOOKMARK [2][-]{subsection.G.2.2}{Characteristic function of a sum. Simmerization}{section.G.2}% 248
+\BOOKMARK [2][-]{subsection.G.2.3}{Methods based on the Fourier-Stieltjes transform}{section.G.2}% 249
+\BOOKMARK [2][-]{subsection.G.2.4}{Berry-Esseen Theorem}{section.G.2}% 250
+\BOOKMARK [2][-]{subsection.G.2.5}{Fourier transform for the norm of a vector}{section.G.2}% 251
+\BOOKMARK [2][-]{subsection.G.2.6}{Fourier transform for the squared norm of a vector}{section.G.2}% 252
+\BOOKMARK [1][-]{section.G.3}{GAR for the Euclidean norm of a vector sum}{appendix.G}% 253
+\BOOKMARK [1][-]{section.G.4}{GAR for the sup-norm of a vector sum}{appendix.G}% 254
+\BOOKMARK [1][-]{section.G.5}{GAR for the sup-norm of a vector sum. Improved}{appendix.G}% 255
+\BOOKMARK [1][-]{section.G.6}{GAR for weighted sums}{appendix.G}% 256
+\BOOKMARK [1][-]{section.G.7}{A uniform bound for the maximum of the norm of weighted vector sums}{appendix.G}% 257
+\BOOKMARK [0][-]{appendix.H}{Deviation bounds for random processes}{part.4}% 258
+\BOOKMARK [1][-]{section.H.1}{ Chaining and covering numbers}{appendix.H}% 259
+\BOOKMARK [1][-]{section.H.2}{ Entropy and Dudley's integral}{appendix.H}% 260
+\BOOKMARK [1][-]{section.H.3}{ A local bound with generic chaining}{appendix.H}% 261
+\BOOKMARK [1][-]{section.H.4}{ Generic chaining with partitioning}{appendix.H}% 262
+\BOOKMARK [1][-]{section.H.5}{ A large deviation bound}{appendix.H}% 263
+\BOOKMARK [1][-]{section.H.6}{ Finite-dimensional smooth case}{appendix.H}% 264
+\BOOKMARK [2][-]{subsection.H.6.1}{Covering and entropy for Euclidean distance}{section.H.6}% 265
+\BOOKMARK [2][-]{subsection.H.6.2}{Generic chaining}{section.H.6}% 266
+\BOOKMARK [1][-]{section.H.7}{ Entropy of an ellipsoid}{appendix.H}% 267
+\BOOKMARK [1][-]{section.H.8}{ Roughness constraints for dimension reduction}{appendix.H}% 268
+\BOOKMARK [1][-]{section.H.9}{ Bound for a bivariate process}{appendix.H}% 269
+\BOOKMARK [1][-]{section.H.10}{ A bound for the norm of a vector random process}{appendix.H}% 270
+\BOOKMARK [1][-]{section.H.11}{ A bound for a family of quadratic forms}{appendix.H}% 271
+\BOOKMARK [1][-]{section.H.12}{ A bound for a smooth quadratic field}{appendix.H}% 272
+\BOOKMARK [0][-]{appendix*.26}{References}{part.4}% 273

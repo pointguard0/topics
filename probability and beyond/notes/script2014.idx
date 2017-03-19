@@ -1,0 +1,42 @@
+\indexentry{linear model|hyperpage}{17}
+\indexentry{linear Gaussian model|hyperpage}{17}
+\indexentry{least squares estimate|hyperpage}{18}
+\indexentry{normal equation|hyperpage}{18}
+\indexentry{response estimate|hyperpage}{19}
+\indexentry{ordinary least squares|hyperpage}{19}
+\indexentry{orthogonal design|hyperpage}{22}
+\indexentry{orthonormal design|hyperpage}{22}
+\indexentry{spectral representation|hyperpage}{23}
+\indexentry{sequence space model|hyperpage}{24}
+\indexentry{quadratic loss|hyperpage}{26}
+\indexentry{quadratic risk|hyperpage}{26}
+\indexentry{noise misspecification|hyperpage}{27}
+\indexentry{Gauss-Markov Theorem|hyperpage}{31}
+\indexentry{R-efficiency|hyperpage}{31}
+\indexentry{colored noise|hyperpage}{33}
+\indexentry{misspecified LPA|hyperpage}{33}
+\indexentry{misspecified noise|hyperpage}{33}
+\indexentry{quadratic log-likelihood|hyperpage}{34}
+\indexentry{quadraticity|hyperpage}{34}
+\indexentry{excess|hyperpage}{37}
+\indexentry{maximum likelihood|hyperpage}{37}
+\indexentry{chi-squared result|hyperpage}{38}
+\indexentry{confidence ellipsoid|hyperpage}{39}
+\indexentry{misspecified LPA|hyperpage}{40}
+\indexentry{misspecified noise|hyperpage}{40}
+\indexentry{ridge regression|hyperpage}{58}
+\indexentry{Tikhonov regularization|hyperpage}{58}
+\indexentry{penalization|hyperpage}{59}
+\indexentry{penalized log-likelihood|hyperpage}{59}
+\indexentry{penalized MLE|hyperpage}{59}
+\indexentry{bias-variance decomposition|hyperpage}{61}
+\indexentry{bias-variance trade-off|hyperpage}{61}
+\indexentry{projection estimate|hyperpage}{63}
+\indexentry{shrinkage estimate|hyperpage}{63}
+\indexentry{risk minimization|hyperpage}{64}
+\indexentry{constrained ML problem|hyperpage}{65}
+\indexentry{spectral cut-off|hyperpage}{66}
+\indexentry{risk minimization|hyperpage}{67}
+\indexentry{oracle choice|hyperpage}{67}
+\indexentry{bias-variance trade-off|hyperpage}{77}
+\indexentry{oracle choice|hyperpage}{77}

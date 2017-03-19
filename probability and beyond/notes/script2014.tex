@@ -1,0 +1,222 @@
+\documentclass[reqno,envcountsect,11pt]{svmono}
+%\documentclass[aos,authoryear,dvips]{imsart}
+\newcommand{\ifims}[2]{#1} % 1 - Latex, 2 - ims version
+\newcommand{\ifAMS}[2]{#1}   % 1 - AMS, 2 - JEL
+\newcommand{\ifAoS}[2]{#1}   % 1 - AoS, 2 - full
+\newcommand{\ifau}[3]{#1}  % #1 - 1 author, #2 - 2 authors, #3 - 3 authors
+\newcommand{\ifbook}[2]{#2}   % 1 - paper; 2 - book
+\newcommand{\ifsv}[2]{#1} % springer version
+%\newcommand{\ifsv}[2]{#2}   % latex version
+
+
+\ifbook{
+    \newcommand{\Chapter}[1]{\section{#1}}                                            
+    \newcommand{\Section}[1]{\subsection{#1}}
+    \newcommand{\Subsection}[1]{\subsubsection{#1}}
+    \def\Chname{Section }
+    \def\chname{section }
+    \def\chapsect{Section}
+  }
+  {
+    \newcommand{\Chapter}[1]{\chapter{#1}}
+    \newcommand{\Section}[1]{\section{#1}}
+    \newcommand{\Subsection}[1]{\subsection{#1}}
+    \def\Chname{Chapter}
+    \def\chname{chapter \,}
+    \def\chapsect{Chapter}
+  }
+
+
+\def\thetitle{Nonparametric estimation: parametric view}
+\def\theruntitle{Nonparametric estimation: parametric view}
+
+\def\theabstract{
+This monograph is based on the course of ``Nonparametric statistics'' 
+I gave in the Fall 2014/2015 at the Humboldt university Berlin.
+An important feature of this course is that it is almost self-contained,
+only basic knowledge of probability theory and mathematical statistics 
+are required.
+A reader can consult my textbook on parametric theory for some additional reading.
+The course is focused on the model choice.
+First I discuss in details the model selection problem for a linear model.
+Then I explain how the proposed approach can be applied to any regular model 
+using the Fisher and Wilks expansions.
+All the results in this course are recently developed and can only be found in 
+in modern statistical literature. 
+However, I tried to keep the derivation at the basic level with complete proofs 
+and explanations.
+The 
+}
+
+
+\def\kwdp{}
+\def\kwds{}
+
+
+\def\thekeywords{}
+
+\def\thankstitle{}
+\def\authora{Vladimir Spokoiny}
+\def\thanksa{} 
+\def\runauthora{spokoiny, v.}
+\def\addressa{
+    Weierstrass-Institute, \\ Humboldt University Berlin, \\ Moscow Institute of
+    Physics and Technology
+    \\
+    Mohrenstr. 39, 10117 Berlin, Germany,    \\
+    }
+\def\emaila{spokoiny@wias-berlin.de}
+\def\affiliationa{Weierstrass-Institute and Humboldt University Berlin}
+
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[english]{babel}
+
+\usepackage{enumerate}
+%\usepackage{bbm}
+%\usepackage{MnSymbol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\ifsv{}{\usepackage{amsthm}}
+\usepackage{natbib}
+\usepackage{comment}
+\usepackage{color}
+\usepackage[mathscr]{eucal}
+\usepackage[math]{easyeqn}
+{   
+    \numberwithin{equation}{chapter}
+    \numberwithin{figure}{chapter}
+}
+\input mydef
+%\input ../tex/statdef
+\input statdef
+%\input myMS
+\usepackage{hyperref}
+\hypersetup{linktocpage,
+            colorlinks,
+            linkcolor=hookersgreen,
+            linktoc=blue,
+            citecolor=ultramarine,
+            urlcolor=black,
+            filecolor=black
+            }
+
+\usepackage{nameref}
+%%%%%%%%%%%%
+\ifsv{}
+{   
+    \newcounter{example}[section]
+    \numberwithin{example}{section}
+    \newcounter{exercise}[section]
+    \numberwithin{exercise}{section}
+    \newcounter{remark}[section]
+    \numberwithin{remark}{section}
+    \newtheorem{theorem}{Theorem}[section]
+    \newtheorem{proposition}[theorem]{Proposition}
+    \newtheorem{lemma}[theorem]{Lemma}
+    \newtheorem{corollary}[theorem]{Corollary}
+    \newtheorem{definition}[theorem]{Definition}
+    \newtheorem{exmp}[example]{Example}
+    \newtheorem{rmrk}[remark]{Remark}
+    \newtheorem{exrc}[exercise]{Exercise}
+    \newenvironment{example}{\begin{exmp}\rm}{\end{exmp}}
+    \newenvironment{remark}{\begin{rmrk}\rm}{\end{rmrk}}
+    \newenvironment{exercise}{\begin{exrc}\rm}{\end{exrc}}
+}
+
+\renewcommand{\textfraction}{0.00}
+\renewcommand{\topfraction}{1}
+\renewcommand{\bottomfraction}{1}
+
+\bibliographystyle{apalike}
+\newcommand{\citeasnoun}[1]{\cite{#1}}
+
+    \textheight=23cm
+    \textwidth=14.8cm
+    \topmargin=0pt
+    \oddsidemargin=1.0cm
+    \evensidemargin=1.0cm
+    %\pagestyle{empty}
+    \linespread{1.3}
+
+%\includeonly{
+%Ch_append,
+%}
+\allowdisplaybreaks
+\begin{document}
+\author{
+Vladimir Spokoiny 
+%Weierstrass Institute  and Humboldt University Berlin,} \\
+%Mohrenstr. 39,
+%10117 Berlin, Germany \\
+%\texttt{ spokoiny@wias-berlin.de} 
+}
+
+\title{\thetitle}
+
+\maketitle
+\tableofcontents
+
+\part{Model selection for linear methods}
+\begin{quote}
+\begin{flushright}                                      
+\ldots 
+the world will remain an eternal, 	\\
+may be, comprehensible,				\\
+but still endless.					\\[12pt]
+J. Brodsky
+\end{flushright}                                  
+\end{quote}
+
+\input{Ch_LR}
+\input{Ch_LRrd}
+\input{Ch_LE}
+\input{Ch_LMSs} 
+\input{Ch_LMSo} 
+\input{Ch_LMSss} 
+\input{Ch_LMSh} 
+\input{Ch_LMSp} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   new part   %%%%%%%%%%%%%%%%%%%%%%%%%
+\part{General parametric theory}
+\begin{quote}
+\begin{flushright}                                      
+\ldots And, then, there were only		\\
+illusion and the road.				\\[12pt]
+J. Brodsky
+\end{flushright}                                  
+\end{quote}
+
+\input{Ch_FW}
+\input{Ch_BvM}
+\input{Ch_rough}
+\input{Ch_semi}
+\input{Ch_iid}
+\input{Ch_GLM}
+\input{Ch_ldens}
+\input{Ch_regr}
+
+\chapter{Median and quantile regression}
+\chapter{Generalized regression}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%   new part   %%%%%%%%%%%%%%%%%%%%%%%%%
+\part{Structural regression}
+
+\input{Ch_sieveMS}
+
+\part{Mathematical tools}
+%\include{Ch_append}
+\input{Ch_append}
+
+\bibliography{exp_ts,listpubm-with-url,phdbib}
+\end{document}

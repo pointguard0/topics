@@ -1,0 +1,341 @@
+\section{Probability Inequalities}\label{2}
+This section contains a number of well known and useful probability inequalities. 
+\begin{thm}
+\textbf{Markov's inequality} \\
+Let $X$ be a non-negative random variable and suppose that $\mathbb{E} X$ exists. For any $t > 0$,
+\begin{align}\label{markov}
+    \mathbb{P}(X \ge t) \le \frac{\mathbb{E}X}{t}
+\end{align}
+\end{thm}
+\begin{s}
+Since $X > 0$ a.s. 
+\begin{align*}
+    \mathbb{E} X = \int_0^{+\infty} x p(x) \, dx = \int_0^t x p(x) \, dx + \int_t^{+\infty} x p(x) \, dx \ge t \int_t^{+\infty} p(x) \, dx = t \mathbb{P}(X > t)
+\end{align*}
+\end{s}
+Chebyshev's inequality is follows straight from Markov's inequality by simple plugging-in $|X - \mathbb{E}X|$ instead of $X$. More precisely it looks as follows
+\begin{thm}
+\textbf{Chebyshev's inequality} \\
+Let $\mu = \mathbb{E} X$ and $\mathbb{V}ar(X) = \sigma^2 < +\infty$, then for any $t > 0$
+\begin{align}
+    \mathbb{P}(|X - \mu| \ge t) \le \frac{\sigma^2}{t^2}
+\end{align}
+\end{thm}
+\begin{s}
+Once again, plug in $|X-\mathbb{E}X|$ instead of $X$ in \eqref{markov}.
+\end{s}
+As we have introduced the law of large numbers, one can easily prove the weak law by applying Chebyshev's inequality to it. ({\color{blue}{do it as an exercise}})
+\par Another modification of Markov's inequality is known as Chernoff's inequality or bound. 
+\begin{thm}
+\textbf{Chernoff's bound} \\    
+Let $X$ is a random variable, then 
+\begin{align}\label{chernoff}
+\mathbb{P}(X \ge \e) \le \inf_{t \ge 0} e^{-t\e} \mathbb{E} e^{tX}.
+\end{align}
+\end{thm}
+\begin{s}
+For any $t > 0$,
+\begin{align}
+    \mathbb{P}(X \ge \e) = \mathbb{P}(e^{tX} \ge e^{t\e}) \le e^{-t\e} \mathbb{E} e^{tX}.
+\end{align}
+And since, it is true for any $t \ge 0$, then it should be true for the infimum, which completes the proof.
+\end{s}
+\par A more sharper inequality of this kind is Hoeffding's inequality, but
+%\subsection{Hoeffding Inequality}
+before presenting Hoeffding's inequality we introduce one auxiliary lemma. This lemma plays crucial role in the proof of Hoeffding's inequality and is very useful in many other cases.
+\begin{lemma}
+Suppose $a \le X \le b$ a.s. and $\mathbb{E} X = \mu$, then 
+\begin{align}\label{hoef}
+    \mathbb{E} e^{tX} \le e^{t\mu} \cdot e^{\frac{t^2(b-a)^2}{8}}
+\end{align}
+\end{lemma}
+\begin{s}
+Without loss of generality (WLOG) we can assume that $\mu = 0$, in other words, from proof for $\mu = 0$ it is straightforward to prove for random variable $X$ non-zero mean. Then, from $a \le X \le b$ a.s. one can write 
+\begin{align*}
+    X = \alpha b + (1-\alpha) a, 
+\end{align*}
+where $\alpha = \frac{X - a}{b - a}$. Since, the function $e^{tx}$ is convex in $x$, then 
+\begin{align}
+    e^{tX} \le \alpha e^{t b} + (1-\alpha) e^{ta} = \frac{X - a}{b - a} e^{t b} + \frac{b - X}{b - a} e^{ta}
+\end{align}
+Taking the expected value of both sides and using $\mathbb{E} X = 0$ yields  
+\begin{align}
+\mathbb{E} e^{tX} \le -\frac{a}{b - a} e^{tb} + \frac{b}{b - a}e^{ta} \stackrel{\text{def}}{=} e^{g(u)},
+\end{align}
+where $u = t(b-a)$ and $g(u) = -\gamma u + \log(1 - \gamma + \gamma e^u)$ with $\gamma = -a/(b-a)$. Note that $g(0) = g'(0) = 0$ and $g''(u) \le 1/4$ for all $u > 0$. To see the later, we explicitly compute the second derivative 
+\begin{align*}
+    g''(u) = \frac{\gamma(1-\gamma) e^u}{(1 - \gamma + \gamma e^u)}
+\end{align*}
+This function obtains it's maximum when it's derivative is zero (due to convexity), which implies that 
+\begin{align*}
+    e^u = \frac{1 - \gamma}{\gamma} \implies g''(u) \le \frac{(1-\gamma)^2}{(2 - 2\gamma)^2} = \frac{1}{4}.
+\end{align*}
+Then, using Taylor series and Taylor's theorem we obtain that there exists a point $x_{\circ} \in [0, u]$ such that 
+\begin{align}
+g(u) = g(0) + g'(0) \cdot u + g''(x_{\circ}) \frac{u^2}{2} \le \frac{1}{4} \cdot \frac{t^2(b-a)^2}{2} = \frac{t^2(b-a)^2}{8}.
+\end{align}
+Hence, 
+\begin{align}
+    \mathbb{E}e^{tX} \le e^{g(u)} \le e^{\frac{t^2(b-a)^2}{8}},
+\end{align}
+which leads to the end of the proof.
+\end{s}
+\begin{thm}
+\textbf{Hoeffding's inequality} \\
+    Let $Y_1, \dots, Y_n$ be iid observations with $\mathbb{E}Y_i = \mu$ and $a \le Y_i \le b$ a.s. Then, for any $\e > 0$ 
+    \begin{align}
+        \mathbb{P}(|\overline{Y}_n - \mu| \ge \e) \le 2 e^{-2n\e^2/(b-a)^2}
+    \end{align}
+\end{thm}
+\begin{s}
+Note that 
+\begin{align*}
+    \mathbb{P}(|\overline{Y}_n - \mu| \ge \e) = \mathbb{P}(\overline{Y}_n - \mu \ge \e) + \mathbb{P}(-\overline{Y}_n + \mu \ge \e)
+\end{align*}
+Examine $\mathbb{P}(\overline{Y}_n - \mu \ge \e)$
+\begin{align}
+\mathbb{P}(\overline{Y}_n - \mu \ge \e) = \mathbb{P}(Y_1 + \dots Y_n \ge \e n + \mu n) = \mathbb{P}\left(e^{t}\sum_{i=1}^n Y_i \ge e^{tn(\e + \mu)}\right) \le \\ e^{-tn(\e + \mu)} \cdot \mathbb{E} e^{t\sum_{i=1}^n Y_i} = e^{-tn(\e + \mu)} \cdot \left(\mathbb{E} e^{tY_i}\right)^n \le e^{-tn(\e + \mu)} \cdot e^{tn\mu} \cdot e^{\frac{t^2 n (b-a)^2} 8}.
+\end{align}
+And since the inequality
+\begin{align}
+\mathbb{P}(\overline{Y}_n - \mu \ge \e) \le e^{-tn\e} \cdot e^{\frac{t^2 n (b-a)^2} 8}
+\end{align}
+is true for any $t \ge 0$, hence we are allowed to take the infimum with respect to $t$, i.e. 
+\begin{align}\label{10}
+\mathbb{P}(\overline{Y}_n - \mu \ge \e) \le \inf_{t \ge 0}e^{-tn\e} \cdot e^{\frac{t^2 n (b-a)^2} 8}
+\end{align}
+We see a parabola with positive coefficient of $t^2$, hence the minimum is obtained at $t^* = \frac{4\e}{{(b-a)^2}}$ which implies
+\begin{align}
+\mathbb{P}(\overline{Y}_n - \mu \ge \e) \le \inf_{t \ge 0}e^{-tn\e} \cdot e^{\frac{t^2 n (b-a)^2} 8} = e^{-\frac{2n\e^2}{(b-a)^2}}.
+\end{align}
+Applying the same argument to $\mathbb{P}(-\overline{Y}_n + \mu \ge \e)$ yields the result.
+\end{s}
+\begin{rmrk}
+First of all, note that here we have two "degrees of freedom": $\e$ and $n$, which means that by varying the tolerance level and sample size one can obtain different results. Suppose we fix $\e$ then one can take $n$ that goes to infinity which will lead the rhs vanishes to zero. In case when $n\e^2 \asymp C \implies \e \asymp \frac 1 {\sqrt{n}}$ we get a constant rhs, more precisely, a number proportional to $e^{-2/{(b-a)^2}}$, which is very typical in probability theory.
+\end{rmrk}
+\begin{exer}
+In the proof of Hoeffding's inequality we have used the fact that $Y_i$s are independent, what if we get rid of this condition? Repeat the proof and comment on your findings.  
+\end{exer}
+A generalization of Hoeffding's inequality is known as McDiarmid inequality. 
+\begin{thm}
+\textbf{McDiarmid's inequality} \\
+Let $X_1, \dots, X_n$ be independent random variables. Further, let $f$ be a function of $X_1, \dots X_n$ that satisfies $\forall i$, 
+\begin{align}
+\sup_{x_1, \dots, x_n, x_i'} |f(x_1, \dots x_{i-1}, x_i, x_{i+1}, \dots, x_n) - f(x_1, \dots x_{i-1}, x_i', x_{i+1}, \dots, x_n)| \le c_i
+\end{align}
+Then
+\begin{align}
+\mathbb{P}\left(f(X_1, \dots, X_n) - \mathbb{E} f(X_,1 \dots X_n) \ge \e \right) \le \exp\left\{-\frac{2\e^2}{\sum_{i=1}^n c_i^2}\right\}
+\end{align}
+\end{thm}
+\begin{s}
+
+\end{s}
+Another interesting and useful inequality in probability theory is Bernstein inequality. We will describe it in the simplest framework. 
+\begin{thm}
+\textbf{Bernstein's inequality} \\
+Let $\xi_1, \dots, \xi_n$ be independent and bounded random variables with zero mean and $|\xi_i| \le M$ a.s., for all $i \in \{1, \dots, n\}$ and some constant $M$. Let $\sigma^2 = \mathbb{V}ar(\overline{\xi_n})$, where $\overline{\xi_n}$ is the sample mean of random variables $\xi_1, \dots, \xi_n$. Then, 
+\begin{align}
+    \mathbb{P}\left(\frac{1}{n} \sum_{i=1}^n \xi_i \ge \e \right) \le e^{-\frac{n\e^2}{2\sigma^2 + 2/3 M\e}}
+\end{align}
+\end{thm}
+\begin{s}
+
+\end{s}
+%\subsection{Chernoff Inequality}
+%\subsection{Bernstein Inequality}
+%\subsubsection{Bonferroni bound}
+\subsection{Application to High-Dimensional Geometry}
+\subsubsection{Initial observations}
+We start with a very simple but not intuitive (at least, for people who I asked) fact.
+\begin{itemize}
+\item Consider the map $x \to \lambda x$ and a convex figure $D$. Applying this map to every point of the figure one can easily conclude that the volume of $D$ changes as follows $|D| \to \lambda^n |D|$, because $x \in \mathbb{R}^n$. Let $\lambda = 1 + \varepsilon, \varepsilon > 0 \implies (1+\varepsilon)^n$ which can be enormously large in case of $n \gg 1$. 
+\par The great example of this is a watermelon in $\mathbb{R}^{1000}$. Assume that we live in 1000-dimensional world and we bought a watermelon with a radius of one meter. As all normal people (remark: they live in $\mathbb{R}^3$) we get out the watermelon rind a thickness of 1 cm. Let's see what we have left 
+\begin{eqnarray}
+\lambda = \frac 1 {1- 10^{-2}} \implies \frac V {V_-} = \left[1 + \frac {10^{-2}}{1 - 10^{-2}}\right]^{1000} \approx 2.3 \times 10^4,
+\end{eqnarray}
+where $V$ is the volume of initial watermelon and $V_-$ is the volume of the watermelon without rind. Thus,
+\begin{eqnarray}
+\frac {V - V_-}{V_-} \approx 2.3 \times 10^4,
+\end{eqnarray}
+which mean that the volume of rind is 20000 times as much as the volume of what we have left. In this way, we have obtained the concentration property of $n$-dimensional ball (defined in the Euclidean space with $\ell_2$ norm), i.e. almost everything is near the border. 
+\item Let $F(x) \le 1$ for $|x| \le 1$, where $x \in \mathbb{R}^n, \, n \gg 1$, then if we measure the the function value at a random point $x$ such that $|x| \le 1$, then $|x|$($|\cdot|$ can be any norm, if not specified) is approximately be equal to 1, which, in turn, means that the value of $F(x)$ is also close to $1$. 
+\item In general, we have:
+\begin{eqnarray}
+f \in C(\mathbb{B}^n, \mathbb{R})\text{ ? } f(\partial \mathbb{B}^n) = \text{const}, \text{ otherwise --- arbitrary function},
+\end{eqnarray}
+then from the observer's point of view the function is a constant with great probability, while it may be very picky and far from constant. 
+\end{itemize}
+\subsubsection{Detailed Estimates}
+\begin{itemize}
+\item {\bf Volume of cuts}
+\par Let $\delta \in [0, 1]$
+\begin{center}
+\begin{tikzpicture}
+\tkzInit[xmax=4,ymax=4,xmin=-4,ymin=-4]
+%   \tkzGrid
+  % \tkzAxeXY
+\draw (0,0) circle (3cm);
+\draw[->] (-4.25,0) -- (4.25,0) coordinate (x axis);
+ \draw[->] (0,-4.25) -- (0,4.25) coordinate (y axis);
+ \draw[name path = C, red] (-0.3, -2.98496231131986) -- (-0.3, 2.98496231131986);
+ \draw[name path = D, red] (0.3, -2.98496231131986) -- (0.3, 2.98496231131986);
+\filldraw (-0.3, 0) circle[radius=1.5pt];
+ \node[above left=0.5pt of {(-0.3,0)}, outer sep=1pt,fill=white] {-$\delta$};
+ \filldraw (0.3, 0) circle[radius=1.5pt];
+ \node[above right=0.5pt of {(0.3,0)}, outer sep=1pt,fill=white] {$\delta$};
+ \draw[red] (0.3, 0) circle (2.98496231131986cm);
+ \draw[red] (0,0) -- (0.3, 2.98496231131986);
+\end{tikzpicture}
+\end{center}
+Assume we cut a tiny strip near the center of a ball in $\mathbb{R}^n$. The radius of the red circle (see above picture) equals $r = (1-\delta^2)^{\frac 1 2}$ and since $1 - \delta \le (1-\delta^2)^{\frac 1 2} \implies 2\delta(1-\delta) \le 0$, which is only true for $\delta \in [0,1]$. So, we construct the cut showed in the picture and calculate the ratio of this tiny strip through $\delta$ to the initial ball's volume. 
+\begin{eqnarray}
+R = \frac {\frac 1 2 (1-\delta^2)^{\frac n 2}}{1^n} = \frac 1 2 e^{\frac n 2 \log(1-\delta^2)} < \frac 1 2 e^{- \frac 1 2 \delta^2 n}.
+\end{eqnarray}
+For $n \gg 1$ we see that $R \to 0$, which means that for large enough $n$ the cut contains almost no volume, hence we have concentration of measure in a tiny strip around center. Analogically for the left part, i.e. $- \delta$.
+\begin{exer}
+Repeat the same steps (as for volume) for area. 
+\\
+Hint: Use that the area of hypersphere with raduis $R$ in $\mathbb{R}^n$ equals to $n C_n R^{n-1}$, where $C_n$ is some constant. 
+\end{exer}
+Hence, using the above exercise we get
+\begin{eqnarray}
+\mathbb{P}_n( x \in \Omega_{\delta}) > 1 - 2 \cdot e^{-\frac 1 2 \delta^2 n }, 
+\end{eqnarray}
+where $\Omega_{\delta}$ is the figure (split) around center. 
+\item {\bf Orthogonality of random vectors on $\mathbb{S}^n$}
+\par The claim is the following: random vectors uniformly distributed on a $n$-dimensional unit ball are almost always orthogonal. We threat "almost always orthogonal" as follows 
+\begin{eqnarray}
+\mathbb{P}_n(|\langle\, v_1, v_2 \rangle| > \delta) \to 0,
+\end{eqnarray}
+Alternatively, we write it as $\langle\,v_1, v_2 \rangle \approx 0$. \par
+\par Fixing one vector, say $v_1$ as it was shown in the picture and randomly choose the second vector $v_2$ on the unit sphere. Let's estimate the probability that the scalar product is more that a given constant $\delta$. 
+\begin{eqnarray}
+\mathbb{P}_n(|\langle\, v_1, v_2 \rangle| > \delta) < 2 \cdot e^{-\frac 1 2 \delta^2 n}.
+\end{eqnarray}
+\begin{center}
+\begin{tikzpicture}
+\tkzInit[xmax=4,ymax=4,xmin=-4,ymin=-4]
+%   \tkzGrid
+%   \tkzAxeXY
+\draw (0,0) circle (3cm);
+\draw[->] (-4.25,0) -- (4.25,0) coordinate (x axis);
+ \draw[->] (0,-4.25) -- (0,4.25) coordinate (y axis);
+ \draw[name path = C, red] (-0.3, -2.98496231131986) -- (-0.3, 2.98496231131986);
+ \draw[name path = D, red] (0.3, -2.98496231131986) -- (0.3, 2.98496231131986);
+\filldraw (-0.3, 0) circle[radius=1.5pt];
+ \node[above left=0.5pt of {(-0.3,0)}, outer sep=1pt,fill=white] {-$\delta$};
+ \filldraw (0.3, 0) circle[radius=1.5pt];
+ \node[above right=0.5pt of {(0.3,0)}, outer sep=1pt,fill=white] {$\delta$};
+ \draw[->, green] (0,0) -- (1, 2.8284271247461903);
+  \node[above =0.5pt of {(1, 2.8284271247461903)}, outer sep=1pt] {$v_2$};  
+ \draw[->, green] (0,0) -- (3, 0);
+  \node[above right=0.5pt of {(3, 0)}, outer sep=1pt] {$v_1$};
+ \draw[->, green] (1, 2.8284271247461903) -- (1, 0);  
+\end{tikzpicture}
+\end{center}
+Hence, the scalar product of two uniformly distributed random vectors is greater than arbitrary small constant $\delta$ with very low probability $\asymp Ce^{-\delta^2 n}$. 
+\begin{re}
+The intuition of this phenomenon is the following: the orthogonal space of first vector $v_1$ has dimension $n-1$, and if a random vector belongs to this space then the scalar product is zero. The rest
+\end{re}
+\begin{exer}
+What if we cut the way it is shown below? Does that mean that almost-all-volume is concentrated in a small square around the sphere center?
+\end{exer}
+ \begin{center}
+\begin{tikzpicture}
+\tkzInit[xmax=4,ymax=4,xmin=-4,ymin=-4]
+%   \tkzGrid
+%   \tkzAxeXY
+\draw (0,0) circle (3cm);
+\draw[->] (-4.25,0) -- (4.25,0) coordinate (x axis);
+ \draw[->] (0,-4.25) -- (0,4.25) coordinate (y axis);
+ \draw[name path = C, red] (-0.3, -2.98496231131986) -- (-0.3, 2.98496231131986);
+ \draw[name path = D, red] (0.3, -2.98496231131986) -- (0.3, 2.98496231131986);
+\filldraw (-0.3, 0) circle[radius=1.5pt];
+% \node[above left=0.5pt of {(-0.3,0)}, outer sep=1pt,fill=white] {-$\delta$};
+ \filldraw (0.3, 0) circle[radius=1.5pt];
+ %\node[above right=0.5pt of {(0.3,0)}, outer sep=1pt,fill=white] {$\delta$};
+ \draw[name path = C, blue] (-2.98496231131986, -0.3) -- (2.98496231131986, -0.3);
+ \draw[name path = D, blue] (-2.98496231131986, 0.3) -- (2.98496231131986, 0.3);
+ \filldraw (0, 0.3) circle[radius=1.5pt];
+ \filldraw (0, -0.3) circle[radius=1.5pt];
+\end{tikzpicture}
+\end{center}
+
+\end{itemize}
+\subsubsection{Non-linear Law of Large Numbers}
+Let $f : S^n \to \mathbb{R}$, then for function $f$ we define the median function $M_f$ as follows 
+\begin{eqnarray}
+\left| \{x \in S^n \, | \, f(x) \ge M_f \}\right| \ge \frac 1 2 \\
+\left| \{x \in S^n \, | \, f(x) \le M_f \}\right| \ge \frac 1 2 
+\end{eqnarray}
+Assume that $f \in \text{Lip}_1(S^n, \mathbb{R}), n \gg 1$. Note the Lipschitz condition is just an example of regularity condition, there are many other conditions with weaker restrictions on function class. What is important that the function does not have sharp changes, like Dirichlet function. \par We claim that for $x_1, x_2 \in S^n$ it holds $f(x_1) \approx f(x_2) \approx M_f$. Then, 
+\begin{eqnarray}
+\text{Pr}\left\{|f(x) - M_f| > \delta \right\} < 2 \cdot e^{-\frac 1 2 \delta^2 n}
+\end{eqnarray}
+The above result can be easily extended for a sphere with radius $r$ and $f \in \text{Lip}_L(S^n, \mathbb{R})$
+\begin{eqnarray}
+\text{Pr}\left\{|f(x) - M_f| > \delta \right\} < 2 \cdot e^{-\frac 1 2 \left(\frac{\delta}{rL}\right)^2 n}.
+\end{eqnarray}
+The last inequality is known as non-linear law of large numbers for Lipschitz function $f$. Recall the standard law of large numbers: let $\xi_1, \xi_2, \dots \xi_n$ is a sequence of i.i.d. random variables and$\mathbb{E}\xi_i = \mu$, ????? 
+\begin{eqnarray}
+\frac 1 n \sum_{i=1}^n {\xi_i}  \xrightarrow{\mathbb{P}} \mu,
+\end{eqnarray}
+or
+\begin{eqnarray}
+\lim_{n\to \infty} \mathbb{P}\left(\left|\frac 1 n \sum_{i=1}^n {\xi_i} - \mu \right| < \varepsilon\right) = 1
+\end{eqnarray}
+\begin{ex}
+The temperature in auditorium, from the observer's point of view is constant, while it varies from point to point. 
+\end{ex}
+\par In probability theory the random variable $S_n = \frac 1 n \left(\sum_{i=1}^n x_1 + \dots x_n \right)$ plays crucial role. Consider a sphere $x_1^2 + \dots x_n^2 = \sigma^2 n$. Obviously $S_n$ is Lipschitz function, because $|\nabla S_n| = \frac 1 {\sqrt{n}} = L$ (Lipschitz constant). The radius of sphere  $r_n = \sigma \sqrt{n}$, then
+\begin{eqnarray}
+\text{Pr}\left\{|S_n - 0| > \delta \right\} < 2 \cdot \exp\left({-\frac 1 2 \left(\frac{\delta}{\sigma}\right)^2 n}\right).
+\end{eqnarray}
+The intuition behind the last inequality is the following: typical deviations of $S_n$ from $0$ observed when $\delta \asymp \frac 1{\sqrt{n}}$. In probability theory the expression $\frac 1{\sqrt{n}}$ appears very often, in particular, it is a typical rate of convergence. If $\delta$ vanishes with {\it{higher}} speed, say, $\frac 1 n$ or $\frac 1 {n^2}$, then the right hand side vanishes and we don't observe errors of such size.  
+\subsubsection{Ball in $\mathbb{R}^n$. Central Limit Theorem (CLT)}
+\par Recall the Central Limit Theorem (CLT) from section 1. Let $\xi_1, \dots, \xi_n$ i.i.d. with $\mathbb{E}\xi_i = \mu, \mathbb{E} \xi^2_i < \infty$ and $\mathbb{V}ar \xi = \sigma^2$, then 
+\begin{eqnarray}
+\frac{\xi_1 + \dots + \xi_n - n\mu}{\sigma \cdot \sqrt{n} } \xrightarrow{w} \mathcal{N}(0, 1)
+\end{eqnarray}
+\par Consider a sphere with volume of 1, i.e. we want it to a probability measure, then $r_n \asymp \sqrt{n}$. Since, 
+\begin{eqnarray}
+|B^n(r_n) | = \frac{\pi^{n/2}}{\Gamma(n/2 + 1)} r_n^n= 1, 
+\end{eqnarray}
+then using the asymptotic expression for Gamma function and Stirling formula one can obtain 
+\begin{eqnarray}
+r_n = \frac {\sqrt[n]{\Gamma\left(\frac n 2 + 1\right)}}{\sqrt{\pi}} \sim \frac 1 {\sqrt{\pi}}{\sqrt{\frac{n}{2e}}} \cdot \sqrt[n]{\pi n} \to \sqrt{\frac{n}{2\pi e}}, {\text { as } } n \to \infty.
+\end{eqnarray}
+%\item {\bf ?????????? ??????????}
+Loosely speaking, the sphere with unit volume is huge, in terms of linear sizes, i.e. $r_n \asymp \sqrt{n}$, and volume is $1$. Analogically it holds for a unit cube as well, i.e. the volume of cube is $1$, but the main diagonal has length of $\sqrt{n}$.
+\par The physical explanation of this fact is as follows: suppose we have $n$ molecules in the auditorium and they are interacting somehow. The kinetic energy then is  
+\begin{eqnarray}\label{energy}
+\frac 1 2 mv_1^2 + \dots \frac 1 2 {mv_n^2} \asymp \sigma^2 n,
+\end{eqnarray}
+where, the last approximation is motivated by the fact kinetic energy is proportional to the number of molecules. Moreover, \eqref{energy} is a $3n$-dimensional sphere, the radius of which  is of order $r \asymp \sigma \sqrt{n}$.
+\begin{exer}
+Project the $n$-dimensional sphere on a line? Is it something familiar to you? 
+\end{exer}
+
+\subsection{sub-Gaussian class}
+An important special case of random variables is so called sub-Gaussian random variables. In this section we will present basic properties of sub-Gaussian random variables as well as the structure of the space of sub-Gaussian random variables. 
+They play a crucial role in a  
+
+\begin{dfn}
+We call a random variable $X$ with $\mathbb{E} X = \mu$ to be sub-Gaussian if there exists such $\sigma > 0$ that 
+\begin{align}
+    \mathbb{E} e^{\lambda(X - \mu)} \le e^{\frac{\lambda^2 \sigma^2}{2}}
+\end{align}
+holds for all $\lambda \in \mathbb{R}$. 
+\par Thus, the condition for $X$ to be sub-Gaussian says that there exists $\sigma > 0$ such that the Laplace transform of $X$ is dominated by the Laplace transform of a Gaussian random variable with mean $\mu$ and variance $\sigma^2$. When $\mu = 0$ the random variable $X$ is usually called $\sigma$-sub-Gaussian or sub-Gaussian with parameter $\sigma$. \end{dfn}
+
+\subsection{sub-Exponential class}
+\begin{itemize}
+    \item definition 
+    \item some properties 
+    \item the following problem: Prove that 
+    \begin{align}
+        \mathbb{P}(|X - \mu| > t) \le \begin{cases} 2e^{-\frac{t^2}{2\sigma^2}}, t \in [0, \frac{\sigma^2}{b}) \\ 2e^{-\frac{t}{2b}}, t \ge \frac{\sigma^2}{b}\end{cases}
+    \end{align}
+\end{itemize}
+\subsection{Pinsker Inequality and Gaussian comparison}
